@@ -1,0 +1,10 @@
+D:\nro\222\code\bin\Debug\net35\Assembly-CSharp.dll
+D:\nro\222\code\bin\Debug\net35\Assembly-CSharp.pdb
+D:\nro\222\code\bin\Debug\net35\UnityEngine.dll
+D:\nro\222\code\obj\Debug\net35\Assembly-CSharp.csprojAssemblyReference.cache
+D:\nro\222\code\obj\Debug\net35\Assembly-CSharp.csproj.CoreCompileInputs.cache
+D:\nro\222\code\obj\Debug\net35\Assembly-CSharp.csproj.CopyComplete
+D:\nro\222\code\obj\Debug\net35\Assembly-CSharp.dll
+D:\nro\222\code\obj\Debug\net35\Assembly-CSharp.pdb
+D:\nro\222\Dragonboy_vn_v222_Data\Managed\net35\Assembly-CSharp.dll
+D:\nro\222\Dragonboy_vn_v222_Data\Managed\net35\Assembly-CSharp.pdb
