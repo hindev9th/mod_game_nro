@@ -8,19 +8,19 @@
     ".NETFramework,Version=v3.5": []
   },
   "packageFolders": {
-    "C:\\Users\\hien1\\.nuget\\packages\\": {}
+    "C:\\Users\\hien\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\nro\\222\\code\\Assembly-CSharp.csproj",
+      "projectUniqueName": "D:\\game\\nro\\mod_game\\mod_game_nro\\Assembly-CSharp.csproj",
       "projectName": "Assembly-CSharp",
-      "projectPath": "D:\\nro\\222\\code\\Assembly-CSharp.csproj",
-      "packagesPath": "C:\\Users\\hien1\\.nuget\\packages\\",
-      "outputPath": "D:\\nro\\222\\code\\obj\\",
+      "projectPath": "D:\\game\\nro\\mod_game\\mod_game_nro\\Assembly-CSharp.csproj",
+      "packagesPath": "C:\\Users\\hien\\.nuget\\packages\\",
+      "outputPath": "D:\\game\\nro\\mod_game\\mod_game_nro\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hien1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hien\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -32,12 +32,21 @@
       },
       "frameworks": {
         "net35": {
+          "targetAlias": "net35",
           "projectReferences": {}
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
-      "net35": {}
+      "net35": {
+        "targetAlias": "net35",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
+      }
     }
   }
 }
