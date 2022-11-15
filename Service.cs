@@ -1680,6 +1680,10 @@ public class Service
 
 	public void chat(string text)
 	{
+        if (Mod.Xmap.Pk9rXmap.Chat(text))
+        {
+			return;
+        }
 		Message message = null;
 		try
 		{

@@ -19,7 +19,6 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AppendTargetFrameworkToOutputPath> false </AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
-  <ItemGroup />
   <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>build\Dragonboy_vn_v222_Data\Managed\UnityEngine.dll</HintPath>

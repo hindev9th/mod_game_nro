@@ -3427,6 +3427,7 @@ public class Panel : IActionListener, IChatable
 					else if (type == 14)
 					{
 						Service.gI().requestMapSelect(selected);
+						Mod.Xmap.Pk9rXmap.SelectMapTrans(selected);
 					}
 				}
 			}
@@ -7665,6 +7666,7 @@ public class Panel : IActionListener, IChatable
 			currInfoItem = selected;
 			myVector.addElement(new Command(mResources.REVENGE, this, 10000, (InfoItem)vEnemy.elementAt(currInfoItem)));
 			myVector.addElement(new Command(mResources.DELETE, this, 10001, (InfoItem)vEnemy.elementAt(currInfoItem)));
+			myVector.addElement(new Command(mResources.den, this, 8004, (InfoItem)vEnemy.elementAt(currInfoItem)));
 			GameCanvas.menu.startAt(myVector, X, (selected + 1) * ITEM_HEIGHT - cmy + yScroll);
 			addFriend((InfoItem)vEnemy.elementAt(selected));
 		}
@@ -7713,6 +7715,7 @@ public class Panel : IActionListener, IChatable
 			currInfoItem = selected - 1;
 			myVector.addElement(new Command(mResources.CHAT, this, 8001, (InfoItem)logChat.elementAt(currInfoItem)));
 			myVector.addElement(new Command(mResources.make_friend, this, 8003, (InfoItem)logChat.elementAt(currInfoItem)));
+			myVector.addElement(new Command(mResources.den, this, 8004, (InfoItem)logChat.elementAt(currInfoItem)));
 			GameCanvas.menu.startAt(myVector, X, (selected + 1) * ITEM_HEIGHT - cmy + yScroll);
 			addLogMessage((InfoItem)logChat.elementAt(selected - 1));
 		}

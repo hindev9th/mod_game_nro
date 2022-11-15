@@ -284,6 +284,7 @@ public class Main : MonoBehaviour
 			DataInputStream.update();
 			SMS.update();
 			Net.update();
+			Mod.Xmap.Pk9rXmap.Update();
 			f++;
 			if (f > 8)
 			{

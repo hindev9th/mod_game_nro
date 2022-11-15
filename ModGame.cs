@@ -16,7 +16,7 @@ internal class ModGame
     public static bool isPickAll, isPickPet;
     public static bool isAttack;
     public static int charX, charY;
-    public static string[] petStatus = { "Đi theo" , "Bảo vệ" , "Tấn Công", "Về nhà" };
+    public static string[] petStatus = { "Đi theo" , "Bảo vệ" , "Tấn Công", "Về nhà","Hợp thể","Hợp thể vĩnh viễn" };
     public static void tanSat()
     {
         while (ModGame.isTanSat)
@@ -309,7 +309,7 @@ internal class ModGame
 			Item[] arrItemBag = Char.myCharz().arrItemBag;
 			for (sbyte b = 0; b < arrItemBag.Length; b = (sbyte)(b + 1))
 			{
-				if (arrItemBag[b].template.id == 454)
+				if (arrItemBag[b].template.id == 454 )
 				{
 					Service.gI().useItem(0, 1, b, -1);
 					break;
@@ -333,79 +333,90 @@ internal class ModGame
 					Service.gI().useItem(0, 1, b, -1);
 					break;
 				}
-			}
+                if (arrItemBag[b].template.id == 193)
+                {
+                    Service.gI().useItem(0, 1, b, -1);
+                    break;
+                }
+            }
 		}
 		catch
 		{
 		}
 	}
 
-	public static void keyAction()
+	public static bool keyAction()
 	{
-		if (GameCanvas.keyAsciiPress == 99)
-		{
-			useCapsule();
-			return;
-		}
-		if (GameCanvas.keyAsciiPress == 102)
-		{
-			useBongTai();
-		}
-		if (GameCanvas.keyAsciiPress == 120)
-		{
-			isTanSat = !isTanSat;
-            new Thread(tanSat).Start();
-            GameScr.info1.addInfo((isTanSat ? "Bật" : "Tắt") + " tàn sát", 0);
-		}
-		if (GameCanvas.keyAsciiPress == 97)
-		{
-            isAttack = !isAttack;
-            new Thread(ModGame.autoAttack).Start();
-            GameScr.info1.addInfo((isAttack ? "Bật" : "Tắt") + " ak", 0);
+        switch (GameCanvas.keyAsciiPress)
+        {
+            case 't':
+                isTanSat = !isTanSat;
+                new Thread(tanSat).Start();
+                GameScr.info1.addInfo((isTanSat ? "Bật" : "Tắt") + " tàn sát", 0);
+                break;
+            case 97:
+                isAttack = !isAttack;
+                new Thread(ModGame.autoAttack).Start();
+                GameScr.info1.addInfo((isAttack ? "Bật" : "Tắt") + " ak", 0);
+                break;
+            case 99:
+                useCapsule();
+                break;
+            case 102:
+                useBongTai();
+                break;
+            case 120:
+                Service.gI().chat("xmp");
+                
+                break;
+            default:
+                return false;
+
         }
+        return true;
 	}
 
-	public static void chatAction(string text)
+	public static bool chatAction(string text)
 	{
-		if (text == "chodau")
-		{
-			isChoDau = !isChoDau;
-			new Thread(autoChoDau).Start();
-			GameScr.info1.addInfo((isChoDau ? "Bật" : "Tắt") + " cho đậu", 0);
-		}
-		if (text == "xindau")
-		{
-			isXinDau = !isXinDau;
-			new Thread(autoXinDau).Start();
-			GameScr.info1.addInfo((isXinDau ? "Bật" : "Tắt") + " xin đậu", 0);
-		}
-		if (text == "ttdt")
-		{
-			isShowPet = !isShowPet;
-			GameScr.info1.addInfo((isShowPet ? "Bật" : "Tắt") + " thông tin đệ tử", 0);
-		}
-		if (text == "ttsp")
-		{
-            isShowChar = !isShowChar;
+        switch (text)
+        {
+            case "chodau":
+                isChoDau = !isChoDau;
+                new Thread(autoChoDau).Start();
+                GameScr.info1.addInfo((isChoDau ? "Bật" : "Tắt") + " cho đậu", 0);
+                break;
+            case "xindau":
+                isXinDau = !isXinDau;
+                new Thread(autoXinDau).Start();
+                GameScr.info1.addInfo((isXinDau ? "Bật" : "Tắt") + " xin đậu", 0);
+                break;
+            case "ttdt":
+                isShowPet = !isShowPet;
+                GameScr.info1.addInfo((isShowPet ? "Bật" : "Tắt") + " thông tin đệ tử", 0);
+                break;
+            case "ttsp":
+                isShowChar = !isShowChar;
+                GameScr.info1.addInfo((isShowChar ? "Bật" : "Tắt") + " thông tin sư phụ", 0);
+                break;
+            case "sb":
+                isSanBoss = !isSanBoss;
+                GameScr.info1.addInfo((isSanBoss ? "Bật" : "Tắt") + " thông báo boss", 0);
+                break;
+            case "anhat":
+                isPickAll = !isPickAll;
+                new Thread(ModGame.autoPickAll).Start();
+                GameScr.info1.addInfo((isPickAll ? "Bật" : "Tắt") + " tự động nhặt", 0);
+                break;
+            case "anhatpet":
+                isPickPet = !isPickPet;
+                new Thread(ModGame.autoPickPet).Start();
+                GameScr.info1.addInfo((isPickPet ? "Bật" : "Tắt") + " tự động nhặt đệ tử", 0);
+                break;
+            default:
+                return false;
 
-            GameScr.info1.addInfo((isShowChar ? "Bật" : "Tắt") + " thông tin sư phụ", 0);
-		}
-		if (text == "sb")
-		{
-			isSanBoss = !isSanBoss;
-			GameScr.info1.addInfo((isSanBoss ? "Bật" : "Tắt") + " thông báo boss", 0);
-		}
-        if (text == "anhat")
-        {
-            isPickAll = !isPickAll;
-            new Thread(ModGame.autoPickAll).Start();
-            GameScr.info1.addInfo((isPickAll ? "Bật" : "Tắt") + " tự động nhặt", 0);
         }
-        if (text == "anhatpet")
-        {
-            isPickPet = !isPickPet;
-            new Thread(ModGame.autoPickPet).Start();
-            GameScr.info1.addInfo((isPickPet ? "Bật" : "Tắt") + " tự động nhặt đệ tử", 0);
-        }
+
+        return true;
     }
 }

@@ -2726,7 +2726,8 @@ public class GameScr : mScreen, IChatable
 						{
 							ChatTextField.gI().startChat(this, string.Empty);
 						}
-						ModGame.keyAction();
+						else if (ModGame.keyAction()) { }
+							
 					}
 					else if (!GameCanvas.isMoveNumberPad)
 					{
@@ -6020,6 +6021,8 @@ public class GameScr : mScreen, IChatable
 					{
 						g.drawImage(ItemMap.imageFlare, xSkill + xS[i] + 13, yS[i] + 14, 3);
 					}
+					long num5 = (long)skill.coolDown - mSystem.currentTimeMillis() + skill.lastTimeUseThisSkill;
+					mFont.tahoma_7_white.drawString(g, (num5 > 0L) ? string.Concat(num5 / 1000L) : string.Empty, GameScr.xSkill + GameScr.xS[i] + 14, GameScr.yS[i] + 8, mFont.CENTER, mFont.tahoma_7b_dark);
 				}
 			}
 			paintGamePad(g);
@@ -6432,7 +6435,7 @@ public class GameScr : mScreen, IChatable
 
 	public void onChatFromMe(string text, string to)
 	{
-		ModGame.chatAction(text);
+        if (ModGame.chatAction(text)) { return; }
 		Res.outz("CHAT");
 		if (!isPaintMessage || GameCanvas.isTouch)
 		{

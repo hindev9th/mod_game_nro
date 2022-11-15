@@ -171,6 +171,18 @@ public class Teleport
 
 	public void update()
 	{
+        if (this.isDown)
+        {
+			y = y2;
+        }
+        else if (isUp)
+        {
+			y = -80;
+        }
+        if (Mod.Xmap.Pk9rXmap.XoaTauBay(this))
+        {
+			return;
+        }
 		if (planet > 2 && paintFire && y != -80)
 		{
 			if (isDown && tPrepare == 0)

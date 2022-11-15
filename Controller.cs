@@ -527,8 +527,9 @@ public class Controller : IMessageHandler
 					GameCanvas.panel.mapNames[num36] = msg.reader().readUTF();
 					GameCanvas.panel.planetNames[num36] = msg.reader().readUTF();
 				}
-				GameCanvas.panel.setTypeMapTrans();
-				GameCanvas.panel.show();
+				Mod.Xmap.Pk9rXmap.ShowPanelMapTrans();
+				//GameCanvas.panel.setTypeMapTrans();
+				//GameCanvas.panel.show();
 				break;
 			}
 			case -90:
@@ -4864,6 +4865,7 @@ public class Controller : IMessageHandler
 		catch (Exception ex)
 		{
 			Cout.LogError("LOI TAI LOADMAP INFO " + ex.ToString());
+			Mod.Xmap.Pk9rXmap.FixBlackScreen();
 		}
 	}
 
