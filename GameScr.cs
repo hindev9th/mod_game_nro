@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.src.g;
 using UnityEngine;
+using Mod;
 
 public class GameScr : mScreen, IChatable
 {
@@ -4411,10 +4412,10 @@ public class GameScr : mScreen, IChatable
 
 	public override void update()
 	{
-		//if (ModGame.isTanSat && GameCanvas.gameTick % 20 == 0)
-		//{
-			//autoTanSat();
-		//}
+		if (ModGame.isTanSat && GameCanvas.gameTick % 20 == 0)
+		{
+			autoTanSat();
+		}
 		if (GameCanvas.keyPressed[16])
 		{
 			GameCanvas.keyPressed[16] = false;
@@ -5054,14 +5055,31 @@ public class GameScr : mScreen, IChatable
 			mFont.tahoma_7_white.drawString(g, "Mod: Nguyên Hiện.", 180, 2, mFont.LEFT, mFont.tahoma_7b_dark);
 			mFont.tahoma_7_white.drawString(g, "Thời gian: " + DateTime.Now, 180, 12, mFont.LEFT, mFont.tahoma_7b_dark);
 			mFont.tahoma_7_white.drawString(g, "Map: " + TileMap.mapNames[TileMap.mapID] + " - Khu: " + TileMap.zoneID, 180, 22, mFont.LEFT, mFont.tahoma_7b_dark);
-            mFont.tahoma_7_white.drawString(g,  string.Concat(new object[4]
+            mFont.tahoma_7_white.drawString(g,  string.Concat(new object[5]
                 {
                     "Tàn sát: ",
                     (ModGame.isTanSat ? "Bật" : "Tắt"),
                     " - Auto nhặt: ",
-                    (ModGame.isPickAll ? "Bật" : "Tắt")
+                    (ModGame.isPickAll ? "Bật" : "Tắt") + " - ",
+					auto
                 }), 180, 32, mFont.LEFT, mFont.tahoma_7b_dark);
-            if (ModGame.isShowChar)
+            if (Goback.isGoback)
+            {
+				mFont.tahoma_7_white.drawString(g, string.Concat(new object[9]
+				{
+					"Goback: ",
+					TileMap.mapNames[Goback.idMap],
+					" - Khu: ",
+					Goback.khu,
+					" - X: ",
+					Goback.cX,
+					" - Y: ",
+					Goback.cY,
+					Goback.isDie ? " Đang goback" : ""
+				}), 180, 42, mFont.LEFT, mFont.tahoma_7b_dark);
+			}
+			
+			if (ModGame.isShowChar)
 			{
 				mFont.tahoma_7_white.drawString(g, "Thông tin sư phụ:", 20, GameCanvas.h - 180, mFont.LEFT, mFont.tahoma_7b_dark);
 				mFont.tahoma_7_white.drawString(g, "SM: " + NinjaUtil.getMoneys(Char.myCharz().cPower), 20, GameCanvas.h - 170, mFont.LEFT, mFont.tahoma_7b_dark);
@@ -6435,7 +6453,7 @@ public class GameScr : mScreen, IChatable
 
 	public void onChatFromMe(string text, string to)
 	{
-        if (ModGame.chatAction(text)) { return; }
+        if (ModGame.chatAction(text)) {  }
 		Res.outz("CHAT");
 		if (!isPaintMessage || GameCanvas.isTouch)
 		{
@@ -7402,6 +7420,13 @@ public class GameScr : mScreen, IChatable
 		{
 			return;
 		}
+		ModGame.searchItemMe();
+		if (Char.myCharz().itemFocus != null && Char.myCharz().itemFocus.playerId == Char.myCharz().charID && ModGame.isPickAll)
+		{
+			GameScr.gI().pickItem();
+			ModGame.searchItemMe();
+			return;
+		}
 		bool flag = false;
 		for (int i = 0; i < vMob.size(); i++)
 		{
@@ -7433,20 +7458,6 @@ public class GameScr : mScreen, IChatable
 		{
 			doUseHP();
 		}
-		int[] array = new int[4] { -1, -1, -1, -1 };
-		int num = 0;
-		if (Char.myCharz().nClass.classId == 0 || Char.myCharz().nClass.classId == 1 || Char.myCharz().nClass.classId == 3 || Char.myCharz().nClass.classId == 5)
-		{
-			num = 400;
-		}
-		int num2 = Char.myCharz().cx - Char.myCharz().getdxSkill() - 300;
-		int num3 = Char.myCharz().cx + Char.myCharz().getdxSkill() + 300;
-		int num4 = Char.myCharz().cy - Char.myCharz().getdySkill() - num - 200;
-		int num5 = Char.myCharz().cy + Char.myCharz().getdySkill() + 200;
-		if (num5 > Char.myCharz().cy + 300)
-		{
-			num5 = Char.myCharz().cy + 300;
-		}
 		if (Char.myCharz().mobFocus == null || (Char.myCharz().mobFocus != null && Char.myCharz().mobFocus.isMobMe))
 		{
 			for (int k = 0; k < vMob.size(); k++)
@@ -7455,20 +7466,10 @@ public class GameScr : mScreen, IChatable
 				int num6 = Math.abs(Char.myCharz().cx - mob2.x);
 				int num7 = Math.abs(Char.myCharz().cy - mob2.y);
 				int num8 = ((num6 <= num7) ? num7 : num6);
-				if (mob2.status != 0 && mob2.status != 1 && mob2.hp > 0 && !mob2.isMobMe && !mob2.isBigBoss() && num2 <= mob2.x && mob2.x <= num3 && num4 <= mob2.y && mob2.y <= num5 && (Char.myCharz().mobFocus == null || num8 < array[0]))
-				{
-					Char.myCharz().cx = mob2.x;
-					Char.myCharz().cy = mob2.y;
-					Char.myCharz().mobFocus = mob2;
-					array[0] = num8;
-					Service.gI().charMove();
-					Res.outz("focus 1 con bossssssssssssssssssssssssssssssssssssssssssssssssss");
-					break;
-				}
 				if (mob2.status != 0 && mob2.status != 1 && mob2.hp > 0 && !mob2.isMobMe && !mob2.isBigBoss())
 				{
+					Utilities.teleportMyChar(mob2.x, mob2.y);
 					Char.myCharz().mobFocus = mob2;
-					doSelectSkill(keySkill[0], true);
 					Service.gI().charMove();
 					Res.outz("focus 1 con bossssssssssssssssssssssssssssssssssssssssssssssssss");
 					break;

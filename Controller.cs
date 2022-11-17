@@ -4867,6 +4867,7 @@ public class Controller : IMessageHandler
 			Cout.LogError("LOI TAI LOADMAP INFO " + ex.ToString());
 			Mod.Xmap.Pk9rXmap.FixBlackScreen();
 		}
+		Mod.Utilities.updateWaypointChangeMap();
 	}
 
 	public void keyValueAction(string key, string value)

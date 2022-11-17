@@ -179,10 +179,10 @@ public class Teleport
         {
 			y = -80;
         }
-        if (Mod.Xmap.Pk9rXmap.XoaTauBay(this))
-        {
-			return;
-        }
+       // if (Mod.Xmap.Pk9rXmap.XoaTauBay(this))
+        //{
+			//return;
+        //}
 		if (planet > 2 && paintFire && y != -80)
 		{
 			if (isDown && tPrepare == 0)

@@ -1,4 +1,5 @@
 using System.Threading;
+using Mod;
 
 internal class ModGame
 {
@@ -13,10 +14,23 @@ internal class ModGame
 	public static bool isShowChar;
 
 	public static bool isSanBoss;
-    public static bool isPickAll, isPickPet;
+    public static bool isPickAll, isPickMe;
     public static bool isAttack;
     public static int charX, charY;
     public static string[] petStatus = { "Đi theo" , "Bảo vệ" , "Tấn Công", "Về nhà","Hợp thể","Hợp thể vĩnh viễn" };
+    static ModGame modGame;
+    private static bool isHutItem;
+
+    public static ModGame clone()
+    {
+        if(modGame == null)
+        {
+            modGame = new ModGame();
+        }
+        return modGame;
+    }
+
+    /*
     public static void tanSat()
     {
         while (ModGame.isTanSat)
@@ -79,20 +93,21 @@ internal class ModGame
                     int num6 = Math.abs(Char.myCharz().cx - mob2.x);
                     int num7 = Math.abs(Char.myCharz().cy - mob2.y);
                     int num8 = ((num6 <= num7) ? num7 : num6);
-                    if (mob2.status != 0 && mob2.status != 1 && mob2.hp > 0 && !mob2.isMobMe && !mob2.isBigBoss() && num2 <= mob2.x && mob2.x <= num3 && num4 <= mob2.y && mob2.y <= num5 && (Char.myCharz().mobFocus == null || num8 < array[0]))
-                    {
-                        Char.myCharz().cx = mob2.x;
-                        Char.myCharz().cy = mob2.y;
-                        Char.myCharz().mobFocus = mob2;
-                        array[0] = num8;
-                        Service.gI().charMove();
-                        Res.outz("focus 1 con bossssssssssssssssssssssssssssssssssssssssssssssssss");
-                        break;
-                    }
+                    //if (mob2.status != 0 && mob2.status != 1 && mob2.hp > 0 && !mob2.isMobMe && !mob2.isBigBoss() && num2 <= mob2.x && mob2.x <= num3 && num4 <= mob2.y && mob2.y <= num5 && (Char.myCharz().mobFocus == null || num8 < array[0]))
+                   // {
+                        //Char.myCharz().cx = mob2.x;
+                        //Char.myCharz().cy = mob2.y;
+                       // Utilities.teleportMyChar(mob2.x, mob2.y);
+                       // Char.myCharz().mobFocus = mob2;
+                      //  array[0] = num8;
+                       // Service.gI().charMove();
+                       // Res.outz("focus 1 con bossssssssssssssssssssssssssssssssssssssssssssssssss");
+                       // break;
+                    //}
                     if (mob2.status != 0 && mob2.status != 1 && mob2.hp > 0 && !mob2.isMobMe && !mob2.isBigBoss())
                     {
+                        Utilities.teleportMyChar(mob2.x, mob2.y);
                         Char.myCharz().mobFocus = mob2;
-                        new GameScr().doSelectSkill(GameScr.keySkill[0], true);
                         Service.gI().charMove();
                         Res.outz("focus 1 con bossssssssssssssssssssssssssssssssssssssssssssssssss");
                         break;
@@ -117,6 +132,7 @@ internal class ModGame
             Thread.Sleep(350);
         }
     }
+    */
     public static void autoPickAll()
     {
         while (ModGame.isPickAll)
@@ -143,48 +159,45 @@ internal class ModGame
             Thread.Sleep(500);
         }
     }
-    public static void autoPickPet()
+
+    /// <summary>
+    /// Tự dộng nhặt tất cả item của bản thân đánh rơi ra
+    /// </summary>
+    public static void autoPickMe()
     {
-        while (ModGame.isPickPet)
+        while (ModGame.isPickMe)
         {
-            searchItemPet();
-            charX = 0;
-            charY = 0;
+            searchItemMe();
             if (Char.myCharz().itemFocus != null)
             {
-                charX = Char.myCharz().cx;
-                charY = Char.myCharz().cy;
-                Char.myCharz().cx = Char.myCharz().itemFocus.x;
-                Char.myCharz().cy = Char.myCharz().itemFocus.y;
                 int num = Math.abs(Char.myCharz().cx - Char.myCharz().itemFocus.x);
                 int num2 = Math.abs(Char.myCharz().cy - Char.myCharz().itemFocus.y);
-                if (num <= 40 && num2 < 40)
+                if (num <= 450 && num2 < 500)
                 {
                     GameCanvas.clearKeyHold();
                     GameCanvas.clearKeyPressed();
-                    if (Char.myCharz().itemFocus.template.id != 673)
+                    if (Char.myCharz().itemFocus.template.id != 673 && Char.myCharz().itemFocus.playerId == Char.myCharz().charID)
                     {
                         Service.gI().pickItem(Char.myCharz().itemFocus.itemMapID);
                     }
                     else
                     {
-                        GameScr.gI().askToPick();
+                        if(Char.myCharz().itemFocus.playerId == Char.myCharz().charID)
+                            GameScr.gI().askToPick();
                     }
-                }
-                while(charX == Char.myCharz().itemFocus.x && charY == Char.myCharz().itemFocus.y)
-                {
-                    Char.myCharz().cx = charX;
-                    Char.myCharz().cy = charY;
-                    Thread.Sleep(500);
                 }
             }
             Thread.Sleep(500);
         }
     }
-    public static void searchItemPet()
+
+    /// <summary>
+    /// Tìm kiếm các item của bản thân khi đánh quái rơi ra và focus nó
+    /// </summary>
+    public static void searchItemMe()
     {
         int[] array = new int[4] { -1, -1, -1, -1 };
-        if (Char.myCharz().itemFocus != null)
+        if (Char.myCharz().itemFocus != null && Char.myCharz().itemFocus.playerId == Char.myCharz().charID)
         {
             return;
         }
@@ -194,13 +207,13 @@ internal class ModGame
             int num = Math.abs(Char.myCharz().cx - itemMap.x);
             int num2 = Math.abs(Char.myCharz().cy - itemMap.y);
             int num3 = ((num <= num2) ? num2 : num);
-            if (num > 450 || num2 > 500 || (Char.myCharz().itemFocus != null && num3 >= array[3]))
+            if (num > 450 || num2 > 500 || (Char.myCharz().itemFocus != null && Char.myCharz().itemFocus.playerId == Char.myCharz().charID && num3 >= array[3]))
             {
                 continue;
             }
             if (GameScr.gI().auto != 0 && GameScr.gI().isBagFull())
             {
-                if (itemMap.template.type == 9)
+                if (itemMap.template.type == 9 && Char.myCharz().itemFocus.playerId == Char.myCharz().charID)
                 {
                     Char.myCharz().itemFocus = itemMap;
                     array[3] = num3;
@@ -208,11 +221,15 @@ internal class ModGame
             }
             else
             {
-                Char.myCharz().itemFocus = itemMap;
-                array[3] = num3;
+                if(Char.myCharz().itemFocus.playerId == Char.myCharz().charID)
+                {
+                    Char.myCharz().itemFocus = itemMap;
+                    array[3] = num3;
+                }
             }
         }
     }
+    
     public static void autoAttackPet()
 	{
 		try
@@ -318,7 +335,8 @@ internal class ModGame
 		}
 		catch
 		{
-		}
+            GameScr.info1.addInfo("Lỗi không tìm thấy Bông tai!", 0);
+        }
 	}
 
 	public static void useCapsule()
@@ -342,22 +360,41 @@ internal class ModGame
 		}
 		catch
 		{
-		}
+            GameScr.info1.addInfo("Lỗi không tìm thấy Capsule!", 0);
+        }
 	}
 
+    /// <summary>
+    /// Sử lý các lệnh bằng phím tắt
+    /// </summary>
+    /// <returns></returns>
 	public static bool keyAction()
 	{
         switch (GameCanvas.keyAsciiPress)
         {
+            case 'j':
+                Utilities.changeMapLeft();
+                break;
+            case 'k':
+                Utilities.changeMapMiddle();
+                break;
+            case 'l':
+                Utilities.changeMapRight();
+                break;
+            case 'b':
+                Utilities.buffMe();
+                break;
+            case 'm':
+                Utilities.openUiZone();
+                break;
+            case 'g':
+                Utilities.sendGiaoDichToCharFocusing();
+                break;
             case 't':
-                isTanSat = !isTanSat;
-                new Thread(tanSat).Start();
-                GameScr.info1.addInfo((isTanSat ? "Bật" : "Tắt") + " tàn sát", 0);
+                GameScr.gI().onChatFromMe("ts", "ts");
                 break;
             case 97:
-                isAttack = !isAttack;
-                new Thread(ModGame.autoAttack).Start();
-                GameScr.info1.addInfo((isAttack ? "Bật" : "Tắt") + " ak", 0);
+                GameScr.gI().onChatFromMe("ak", "ak");
                 break;
             case 99:
                 useCapsule();
@@ -367,7 +404,6 @@ internal class ModGame
                 break;
             case 120:
                 Service.gI().chat("xmp");
-                
                 break;
             default:
                 return false;
@@ -376,10 +412,47 @@ internal class ModGame
         return true;
 	}
 
+    /// <summary>
+    /// Xử lý các lệnh chat của mod
+    /// </summary>
+    /// <param name="text"></param>
+    /// <returns></returns>
 	public static bool chatAction(string text)
 	{
+        if(text.Contains("s "))
+        {
+            int speedRun = int.Parse(text.Replace("s ", ""));
+            Utilities.setSpeedRun(speedRun);
+            return true;
+        }else if (text.Contains("speed "))
+        {
+            string textSp = text.Replace("speed ", "");
+            float speedRun = 1.7f;
+            if ( text.Contains("speed 1_") || text.Contains("speed 2_")|| text.Contains("speed 3_")|| text.Contains("speed 4_")|| text.Contains("speed 5_")|| text.Contains("speed 6_")|| text.Contains("speed 7_")|| text.Contains("speed 8_")|| text.Contains("speed 9_") || text.Contains("speed 10_"))
+            {
+                speedRun = float.Parse(textSp.Replace("_",".")+"0");
+            }
+            else
+            {
+                speedRun = float.Parse(textSp);
+            }
+            
+            Utilities.setSpeedGame(speedRun);
+            return true;
+        }
+
         switch (text)
         {
+            case "ak":
+                isAttack = !isAttack;
+                new Thread(ModGame.autoAttack).Start();
+                GameScr.info1.addInfo((isAttack ? "Bật" : "Tắt") + " ak", 0);
+                break;
+            case "ts":
+                isTanSat = !isTanSat;
+                //new Thread(tanSat).Start();
+                GameScr.info1.addInfo((isTanSat ? "Bật" : "Tắt") + " tàn sát", 0);
+                break;
             case "chodau":
                 isChoDau = !isChoDau;
                 new Thread(autoChoDau).Start();
@@ -407,16 +480,33 @@ internal class ModGame
                 new Thread(ModGame.autoPickAll).Start();
                 GameScr.info1.addInfo((isPickAll ? "Bật" : "Tắt") + " tự động nhặt", 0);
                 break;
-            case "anhatpet":
-                isPickPet = !isPickPet;
-                new Thread(ModGame.autoPickPet).Start();
-                GameScr.info1.addInfo((isPickPet ? "Bật" : "Tắt") + " tự động nhặt đệ tử", 0);
+            case "anhatme":
+                isPickMe = !isPickMe;
+                new Thread(ModGame.autoPickMe).Start();
+                GameScr.info1.addInfo((isPickMe ? "Bật" : "Tắt") + " tự động nhặt đồ của bản thân", 0);
+                break;
+            case "goback":
+                Goback.setGoback(TileMap.mapID, TileMap.zoneID, Char.myCharz().cx, Char.myCharz().cy);
+                Goback.isGoback = !Goback.isGoback;
+                new Thread(Goback.Gobacking).Start();
+                GameScr.info1.addInfo((Goback.isGoback ? "Bật" : "Tắt") + " goback", 0);
+                break;
+            case "w":
+                Utilities.KhinhCong();
+                break;
+            case "s":
+                Utilities.DonTho();
+                break;
+            case "a":
+                Utilities.DichTrai();
+                break;
+            case "d":
+                Utilities.DichPhai();
                 break;
             default:
                 return false;
-
         }
-
+        
         return true;
     }
 }
