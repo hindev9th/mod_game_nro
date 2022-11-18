@@ -1393,8 +1393,8 @@ public class Mob : IMapObject
 			{
 				num = 9;
 			}
-			g.drawRegion(imgHP, 0, 6 * (9 - num), 9, 6, 0, x, y - h - 10, 3);
-		}
+            g.drawRegion(imgHP, 0, 6 * (9 - num), 9, 6, 0, x, y - h - 10, 3);
+        }
 	}
 
 	public int getHPColor()

@@ -20,6 +20,7 @@ internal class ModGame
     public static string[] petStatus = { "Đi theo" , "Bảo vệ" , "Tấn Công", "Về nhà","Hợp thể","Hợp thể vĩnh viễn" };
     static ModGame modGame;
     private static bool isHutItem;
+    public static int attackCooldown = 500;
 
     public static ModGame clone()
     {
@@ -256,7 +257,8 @@ internal class ModGame
 				{
 					MyVector myVector = new MyVector();
 					myVector.addElement(mob);
-					Service.gI().sendPlayerAttack(myVector, new MyVector(), -1);
+                    Utilities.autoAttackSkillLong(myVector, new MyVector());
+                    //Service.gI().sendPlayerAttack(myVector, new MyVector(), -1);
 					Res.outz("focus 1 con bossssssssssssssssssssssssssssssssssssssssssssssssss");
 					break;
 				}
@@ -315,7 +317,7 @@ internal class ModGame
             {
                 Service.gI().sendPlayerAttack(vMob, vChar, -1);
             }
-            Thread.Sleep(500);
+            Thread.Sleep(attackCooldown);
         }
     }
 
@@ -381,7 +383,7 @@ internal class ModGame
             case 'l':
                 Utilities.changeMapRight();
                 break;
-            case 'b':
+            case 'h':
                 Utilities.buffMe();
                 break;
             case 'm':
@@ -438,6 +440,14 @@ internal class ModGame
             }
             
             Utilities.setSpeedGame(speedRun);
+            return true;
+        }
+        else if (text.Contains("ak "))
+        {
+            attackCooldown = int.Parse(text.Replace("ak ", ""));
+            isAttack = !isAttack;
+            new Thread(ModGame.autoAttack).Start();
+            GameScr.info1.addInfo((isAttack ? "Bật" : "Tắt") + " ak", 0);
             return true;
         }
 

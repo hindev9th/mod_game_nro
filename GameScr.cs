@@ -5054,14 +5054,13 @@ public class GameScr : mScreen, IChatable
 		{
 			mFont.tahoma_7_white.drawString(g, "Mod: Nguyên Hiện.", 180, 2, mFont.LEFT, mFont.tahoma_7b_dark);
 			mFont.tahoma_7_white.drawString(g, "Thời gian: " + DateTime.Now, 180, 12, mFont.LEFT, mFont.tahoma_7b_dark);
-			mFont.tahoma_7_white.drawString(g, "Map: " + TileMap.mapNames[TileMap.mapID] + " - Khu: " + TileMap.zoneID, 180, 22, mFont.LEFT, mFont.tahoma_7b_dark);
-            mFont.tahoma_7_white.drawString(g,  string.Concat(new object[5]
+			mFont.tahoma_7_white.drawString(g, "Map: " + TileMap.mapNames[TileMap.mapID] + "[" + TileMap.mapID.ToString() + "]"+ " - Khu: " + TileMap.zoneID, 180, 22, mFont.LEFT, mFont.tahoma_7b_dark);
+            mFont.tahoma_7_white.drawString(g,  string.Concat(new object[4]
                 {
                     "Tàn sát: ",
                     (ModGame.isTanSat ? "Bật" : "Tắt"),
                     " - Auto nhặt: ",
-                    (ModGame.isPickAll ? "Bật" : "Tắt") + " - ",
-					auto
+                    (ModGame.isPickAll ? "Bật" : "Tắt")
                 }), 180, 32, mFont.LEFT, mFont.tahoma_7b_dark);
             if (Goback.isGoback)
             {
@@ -5078,8 +5077,7 @@ public class GameScr : mScreen, IChatable
 					Goback.isDie ? " Đang goback" : ""
 				}), 180, 42, mFont.LEFT, mFont.tahoma_7b_dark);
 			}
-			
-			if (ModGame.isShowChar)
+            if (ModGame.isShowChar)
 			{
 				mFont.tahoma_7_white.drawString(g, "Thông tin sư phụ:", 20, GameCanvas.h - 180, mFont.LEFT, mFont.tahoma_7b_dark);
 				mFont.tahoma_7_white.drawString(g, "SM: " + NinjaUtil.getMoneys(Char.myCharz().cPower), 20, GameCanvas.h - 170, mFont.LEFT, mFont.tahoma_7b_dark);
@@ -5139,7 +5137,7 @@ public class GameScr : mScreen, IChatable
 					if (char6.cTypePk == 5)
 					{
 						g.drawLine(Char.myCharz().cx - cmx, Char.myCharz().cy+3 - cmy, char6.cx - cmx, char6.cy - cmy);
-					}
+                    }
 				}
 				try
 				{
@@ -6453,7 +6451,7 @@ public class GameScr : mScreen, IChatable
 
 	public void onChatFromMe(string text, string to)
 	{
-        if (ModGame.chatAction(text)) {  }
+        if (ModGame.chatAction(text)) { return; }
 		Res.outz("CHAT");
 		if (!isPaintMessage || GameCanvas.isTouch)
 		{

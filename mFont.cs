@@ -546,7 +546,8 @@ public class mFont
 		}
 	}
 
-	public MyVector splitFontVector(string src, int lineWidth)
+    
+    public MyVector splitFontVector(string src, int lineWidth)
 	{
 		MyVector myVector = new MyVector();
 		string text = string.Empty;

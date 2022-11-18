@@ -115,6 +115,23 @@ namespace Mod
             return true;
         }
 
+        /// <summary>
+        /// check skill có thể dùng hay ko
+        /// </summary>
+        /// <param name="idSkill"></param>
+        /// <returns>true nếu có thể sử dụng skill.</returns>
+        public static bool canSkillUse(sbyte idSkill)
+        {
+            Skill skill = Char.myCharz().
+                getSkill(new SkillTemplate { id = idSkill });
+
+            if (skill == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
         public static string getTextPopup(PopUp popUp)
         {
             StringBuilder stringBuilder = new StringBuilder();
@@ -289,6 +306,27 @@ namespace Mod
 
             // Đặt thời gian hồi cho skill
             skillBuff.lastTimeUseThisSkill = mSystem.currentTimeMillis();
+        }
+
+        public static void autoAttackSkillLong(MyVector myVector,MyVector myVector1)
+        {
+            //23: trói , 5: automic , 3: masenko ,6 kame
+            sbyte[] skill = { 23, 5, 3, 6 };
+            for(int i = 0; i < skill.Length; i++)
+            {
+                if (canSkillUse(skill[i]))
+                {
+                    // Đổi sang skill 
+                    Service.gI().selectSkill(skill[i]);
+
+                    // Tự tấn công vào bản thân
+                    Service.gI().sendPlayerAttack(myVector, myVector1, -1);
+
+                    // Trả về skill cũ
+                    Service.gI().selectSkill(Char.myCharz().myskill.template.id);
+                    break;
+                }
+            }
         }
 
         /// <summary>

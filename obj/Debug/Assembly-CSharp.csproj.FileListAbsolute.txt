@@ -6,3 +6,10 @@ D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\Assembly-
 D:\game\nro\mod_game\mod_game_nro\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\game\nro\mod_game\mod_game_nro\obj\Debug\Assembly-CSharp.dll
 D:\game\nro\mod_game\mod_game_nro\obj\Debug\Assembly-CSharp.pdb
+D:\nro\222\code\build\Dragonboy_vn_v222_Data\Managed\Assembly-CSharp.dll
+D:\nro\222\code\build\Dragonboy_vn_v222_Data\Managed\Assembly-CSharp.pdb
+D:\nro\222\code\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+D:\nro\222\code\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+D:\nro\222\code\obj\Debug\Assembly-CSharp.csproj.CopyComplete
+D:\nro\222\code\obj\Debug\Assembly-CSharp.dll
+D:\nro\222\code\obj\Debug\Assembly-CSharp.pdb
