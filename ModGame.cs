@@ -321,50 +321,9 @@ internal class ModGame
         }
     }
 
-    public static void useBongTai()
-	{
-		try
-		{
-			Item[] arrItemBag = Char.myCharz().arrItemBag;
-			for (sbyte b = 0; b < arrItemBag.Length; b = (sbyte)(b + 1))
-			{
-				if (arrItemBag[b].template.id == 454 )
-				{
-					Service.gI().useItem(0, 1, b, -1);
-					break;
-				}
-			}
-		}
-		catch
-		{
-            GameScr.info1.addInfo("Lỗi không tìm thấy Bông tai!", 0);
-        }
-	}
 
-	public static void useCapsule()
-	{
-		try
-		{
-			Item[] arrItemBag = Char.myCharz().arrItemBag;
-			for (sbyte b = 0; b < arrItemBag.Length; b = (sbyte)(b + 1))
-			{
-				if (arrItemBag[b].template.id == 194)
-				{
-					Service.gI().useItem(0, 1, b, -1);
-					break;
-				}
-                if (arrItemBag[b].template.id == 193)
-                {
-                    Service.gI().useItem(0, 1, b, -1);
-                    break;
-                }
-            }
-		}
-		catch
-		{
-            GameScr.info1.addInfo("Lỗi không tìm thấy Capsule!", 0);
-        }
-	}
+
+	
 
     /// <summary>
     /// Sử lý các lệnh bằng phím tắt
@@ -399,10 +358,10 @@ internal class ModGame
                 GameScr.gI().onChatFromMe("ak", "ak");
                 break;
             case 99:
-                useCapsule();
+                Utilities.useCapsule();
                 break;
             case 102:
-                useBongTai();
+                Utilities.usePorata();
                 break;
             case 120:
                 Service.gI().chat("xmp");
@@ -448,6 +407,12 @@ internal class ModGame
             isAttack = !isAttack;
             new Thread(ModGame.autoAttack).Start();
             GameScr.info1.addInfo((isAttack ? "Bật" : "Tắt") + " ak", 0);
+            return true;
+        }
+        else if (text.Contains("k "))
+        {
+            int khu = int.Parse(text.Replace("k ", ""));
+            Utilities.changeZone(khu);
             return true;
         }
 
