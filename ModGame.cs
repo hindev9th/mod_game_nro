@@ -3,7 +3,7 @@ using Mod;
 
 internal class ModGame
 {
-	public static bool isXinDau;
+	public static bool isXinDau, isThuDau;
 
 	public static bool isChoDau;
 
@@ -299,6 +299,39 @@ internal class ModGame
 			Thread.Sleep(302000);
 		}
 	}
+    public static void autoThuDau()
+    {
+        while (isThuDau)
+        {
+            try
+            {
+                if(TileMap.mapID == 21 || TileMap.mapID == 22 || TileMap.mapID == 23)
+                {
+                    if (GameScr.gI().magicTree.currPeas > 0)
+                    {
+                        Service.gI().magicTree(1);
+                        Thread.Sleep(300);
+                        GameCanvas.gI().keyPressedz(-5);
+                    }
+                    if (isChoDau)
+                    {
+                        for (int i = 0; i < Char.myCharz().arrItemBag.Length; i++)
+                        {
+                            if (Char.myCharz().arrItemBag[i].template.type == 6)
+                            {
+                                Service.gI().getItem(1, (sbyte)i);
+                            }
+                        }
+                    }
+                }
+                
+            }
+            catch
+            {
+                Thread.Sleep(1000);
+            }
+        }
+    }
     public static void autoAttack()
     {
         while (isAttack)
@@ -437,6 +470,11 @@ internal class ModGame
                 isXinDau = !isXinDau;
                 new Thread(autoXinDau).Start();
                 GameScr.info1.addInfo((isXinDau ? "Bật" : "Tắt") + " xin đậu", 0);
+                break;
+            case "thudau":
+                isThuDau = !isThuDau;
+                new Thread(autoThuDau).Start();
+                GameScr.info1.addInfo((isThuDau ? "Bật" : "Tắt") + " thu đậu", 0);
                 break;
             case "ttdt":
                 isShowPet = !isShowPet;

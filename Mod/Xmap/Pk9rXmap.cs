@@ -94,7 +94,7 @@ namespace Mod.Xmap
                     XmapController.FinishXmap();
                     GameScr.info1.addInfo("Đã huỷ Xmap", 0);
                 }
-                else if (text.Equals("Có lỗi xảy ra vui lòng thử lại sau."))
+                else if (text.Contains("Có lỗi xảy ra "))
                 {
                     switch (TileMap.mapID)
                     {

@@ -8469,7 +8469,15 @@ public class Panel : IActionListener, IChatable
 		}
 		if (idAction == 8004)
 		{
-			InfoItem infoItem3 = (InfoItem)p;
+            for (int i = 0; i < Char.myCharz().arrItemBag.Length; i++)
+            {
+                if(Char.myCharz().arrItemBag[i].template.id == 592)
+                {
+                    Service.gI().useItem(0, 1, (sbyte)i, -1);
+                    break;
+                }
+            }
+                InfoItem infoItem3 = (InfoItem)p;
 			Service.gI().gotoPlayer(infoItem3.charInfo.charID);
 		}
 		if (idAction == 8001)
