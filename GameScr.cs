@@ -4412,7 +4412,9 @@ public class GameScr : mScreen, IChatable
 
 	public override void update()
 	{
-		if (ModGame.isTanSat && GameCanvas.gameTick % 20 == 0)
+        ModGame.update();
+
+        if (ModGame.isTanSat && GameCanvas.gameTick % 20 == 0)
 		{
 			autoTanSat();
 		}

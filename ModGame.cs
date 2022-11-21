@@ -14,7 +14,7 @@ internal class ModGame
 	public static bool isShowChar;
 
 	public static bool isSanBoss;
-    public static bool isPickAll, isPickMe;
+    public static bool isPickAll, isPickMe, isPickPet;
     public static bool isAttack;
     public static int charX, charY;
     public static string[] petStatus = { "Đi theo" , "Bảo vệ" , "Tấn Công", "Về nhà","Hợp thể","Hợp thể vĩnh viễn" };
@@ -31,113 +31,10 @@ internal class ModGame
         return modGame;
     }
 
-    /*
-    public static void tanSat()
-    {
-        while (ModGame.isTanSat)
-        {
 
-            if (!ModGame.isTanSat || GameScr.isChangeZone || Char.myCharz().statusMe == 14 || Char.myCharz().statusMe == 5 || Char.myCharz().isCharge || Char.myCharz().isFlyAndCharge || Char.myCharz().isUseChargeSkill())
-            {
-                return;
-            }
-            bool flag = false;
-            for (int i = 0; i < GameScr.vMob.size(); i++)
-            {
-                Mob mob = (Mob)GameScr.vMob.elementAt(i);
-                if (mob.status != 0 && mob.status != 1)
-                {
-                    flag = true;
-                }
-            }
-            if (!flag)
-            {
-                return;
-            }
-            bool flag2 = false;
-            for (int j = 0; j < Char.myCharz().arrItemBag.Length; j++)
-            {
-                Item item = Char.myCharz().arrItemBag[j];
-                if (item != null && item.template.type == 6)
-                {
-                    flag2 = true;
-                    break;
-                }
-            }
-            if (!flag2 && GameCanvas.gameTick % 150 == 0)
-            {
-                Service.gI().requestPean();
-            }
-            if (Char.myCharz().cHP <= Char.myCharz().cHPFull * 20 / 100 || Char.myCharz().cMP <= Char.myCharz().cMPFull * 20 / 100)
-            {
-                new GameScr().doUseHP();
-            }
-            int[] array = new int[4] { -1, -1, -1, -1 };
-            int num = 0;
-            if (Char.myCharz().nClass.classId == 0 || Char.myCharz().nClass.classId == 1 || Char.myCharz().nClass.classId == 3 || Char.myCharz().nClass.classId == 5)
-            {
-                num = 400;
-            }
-            int num2 = Char.myCharz().cx - Char.myCharz().getdxSkill() - 300;
-            int num3 = Char.myCharz().cx + Char.myCharz().getdxSkill() + 300;
-            int num4 = Char.myCharz().cy - Char.myCharz().getdySkill() - num - 200;
-            int num5 = Char.myCharz().cy + Char.myCharz().getdySkill() + 200;
-            if (num5 > Char.myCharz().cy + 300)
-            {
-                num5 = Char.myCharz().cy + 300;
-            }
-            if (Char.myCharz().mobFocus == null || (Char.myCharz().mobFocus != null && Char.myCharz().mobFocus.isMobMe))
-            {
-                for (int k = 0; k < GameScr.vMob.size(); k++)
-                {
-                    Mob mob2 = (Mob)GameScr.vMob.elementAt(k);
-                    int num6 = Math.abs(Char.myCharz().cx - mob2.x);
-                    int num7 = Math.abs(Char.myCharz().cy - mob2.y);
-                    int num8 = ((num6 <= num7) ? num7 : num6);
-                    //if (mob2.status != 0 && mob2.status != 1 && mob2.hp > 0 && !mob2.isMobMe && !mob2.isBigBoss() && num2 <= mob2.x && mob2.x <= num3 && num4 <= mob2.y && mob2.y <= num5 && (Char.myCharz().mobFocus == null || num8 < array[0]))
-                   // {
-                        //Char.myCharz().cx = mob2.x;
-                        //Char.myCharz().cy = mob2.y;
-                       // Utilities.teleportMyChar(mob2.x, mob2.y);
-                       // Char.myCharz().mobFocus = mob2;
-                      //  array[0] = num8;
-                       // Service.gI().charMove();
-                       // Res.outz("focus 1 con bossssssssssssssssssssssssssssssssssssssssssssssssss");
-                       // break;
-                    //}
-                    if (mob2.status != 0 && mob2.status != 1 && mob2.hp > 0 && !mob2.isMobMe && !mob2.isBigBoss())
-                    {
-                        Utilities.teleportMyChar(mob2.x, mob2.y);
-                        Char.myCharz().mobFocus = mob2;
-                        Service.gI().charMove();
-                        Res.outz("focus 1 con bossssssssssssssssssssssssssssssssssssssssssssssssss");
-                        break;
-                    }
-                }
-            }
-            else if (Char.myCharz().mobFocus.hp <= 0 || Char.myCharz().mobFocus.status == 1 || Char.myCharz().mobFocus.status == 0)
-            {
-                Char.myCharz().mobFocus = null;
-                Char.myCharz().searchItem();
-                while(Char.myCharz().itemFocus != null && ModGame.isPickAll)
-                {
-                    GameScr.gI().pickItem();
-                    Char.myCharz().searchItem();
-                    Thread.Sleep(500);
-                }
-            }
-            if(Char.myCharz().mobFocus != null)
-            {
-                new GameScr().doDoubleClickToObj(Char.myCharz().mobFocus);
-            }
-            Thread.Sleep(350);
-        }
-    }
-    */
     public static void autoPickAll()
     {
-        while (ModGame.isPickAll)
-        {
+
             Char.myCharz().searchItem();
             if(Char.myCharz().itemFocus != null)
             {
@@ -158,7 +55,7 @@ internal class ModGame
                 }
             }
             Thread.Sleep(500);
-        }
+        
     }
 
     /// <summary>
@@ -166,8 +63,6 @@ internal class ModGame
     /// </summary>
     public static void autoPickMe()
     {
-        while (ModGame.isPickMe)
-        {
             searchItemMe();
             if (Char.myCharz().itemFocus != null)
             {
@@ -177,19 +72,18 @@ internal class ModGame
                 {
                     GameCanvas.clearKeyHold();
                     GameCanvas.clearKeyPressed();
-                    if (Char.myCharz().itemFocus.template.id != 673 && Char.myCharz().itemFocus.playerId == Char.myCharz().charID)
+                    if (Char.myCharz().itemFocus.template.id != 673 && Char.myCharz().itemFocus.playerId == Char.myCharz().charID || Char.myCharz().itemFocus.playerId == -1)
                     {
                         Service.gI().pickItem(Char.myCharz().itemFocus.itemMapID);
                     }
                     else
                     {
-                        if(Char.myCharz().itemFocus.playerId == Char.myCharz().charID)
+                        if(Char.myCharz().itemFocus.playerId == Char.myCharz().charID || Char.myCharz().itemFocus.playerId == -1)
                             GameScr.gI().askToPick();
                     }
                 }
             }
             Thread.Sleep(500);
-        }
     }
 
     /// <summary>
@@ -198,7 +92,7 @@ internal class ModGame
     public static void searchItemMe()
     {
         int[] array = new int[4] { -1, -1, -1, -1 };
-        if (Char.myCharz().itemFocus != null && Char.myCharz().itemFocus.playerId == Char.myCharz().charID)
+        if (Char.myCharz().itemFocus != null && Char.myCharz().itemFocus.playerId == Char.myCharz().charID || Char.myCharz().itemFocus.playerId == -1)
         {
             return;
         }
@@ -214,7 +108,7 @@ internal class ModGame
             }
             if (GameScr.gI().auto != 0 && GameScr.gI().isBagFull())
             {
-                if (itemMap.template.type == 9 && Char.myCharz().itemFocus.playerId == Char.myCharz().charID)
+                if (itemMap.template.type == 9 && Char.myCharz().itemFocus.playerId == Char.myCharz().charID || Char.myCharz().itemFocus.playerId == -1)
                 {
                     Char.myCharz().itemFocus = itemMap;
                     array[3] = num3;
@@ -222,7 +116,7 @@ internal class ModGame
             }
             else
             {
-                if(Char.myCharz().itemFocus.playerId == Char.myCharz().charID)
+                if(Char.myCharz().itemFocus.playerId == Char.myCharz().charID || Char.myCharz().itemFocus.playerId == -1)
                 {
                     Char.myCharz().itemFocus = itemMap;
                     array[3] = num3;
@@ -230,7 +124,21 @@ internal class ModGame
             }
         }
     }
-    
+    public static void autoPickPet()
+    {
+        for(int i = 0; i < GameScr.vItemMap.size(); i++)
+        {
+            ItemMap itemMap = (ItemMap)GameScr.vItemMap.elementAt(i);
+            if(itemMap.playerId == Char.myCharz().charID || itemMap.playerId == -1)
+            {
+                Char.myCharz().itemFocus = itemMap;
+                Utilities.teleportMyChar(itemMap.x, itemMap.y);
+                GameScr.gI().pickItem();
+                Thread.Sleep(1000);
+                Utilities.teleportMyChar(charX, charY);
+            }
+        }
+    }
     public static void autoAttackPet()
 	{
 		try
@@ -273,8 +181,7 @@ internal class ModGame
 
 	public static void autoChoDau()
 	{
-		while (isChoDau)
-		{
+
 			for (int i = 0; i < ClanMessage.vMessage.size(); i++)
 			{
 				ClanMessage clanMessage = (ClanMessage)ClanMessage.vMessage.elementAt(i);
@@ -288,21 +195,19 @@ internal class ModGame
 				}
 			}
 			Thread.Sleep(150);
-		}
+		
 	}
 
 	public static void autoXinDau()
 	{
-		while (isXinDau)
-		{
+
 			Service.gI().clanMessage(1, "", -1);
 			Thread.Sleep(302000);
-		}
+		
 	}
     public static void autoThuDau()
     {
-        while (isThuDau)
-        {
+
             try
             {
                 if(TileMap.mapID == 21 || TileMap.mapID == 22 || TileMap.mapID == 23)
@@ -330,12 +235,10 @@ internal class ModGame
             {
                 Thread.Sleep(1000);
             }
-        }
+        
     }
     public static void autoAttack()
     {
-        while (isAttack)
-        {
             MyVector vChar = new MyVector();
             MyVector vMob = new MyVector();
             if (Char.myCharz().mobFocus != null)
@@ -351,12 +254,47 @@ internal class ModGame
                 Service.gI().sendPlayerAttack(vMob, vChar, -1);
             }
             Thread.Sleep(attackCooldown);
-        }
     }
 
 
+    /// <summary>
+    /// Các sự kiện auto
+    /// </summary>
+    public static void update()
+    {
+        if (isPickAll && GameCanvas.gameTick % 20 == 0)
+        {
+            new Thread(autoPickAll).Start();
+        }
+        if (isPickMe && GameCanvas.gameTick % 20 == 0)
+        {
+            new Thread(autoPickMe).Start();
+        }
+        if (isPickPet && GameCanvas.gameTick % 20 == 0)
+        {
+            new Thread(autoPickPet).Start();
+        }
+        if (isAttack && GameCanvas.gameTick % 20 == 0)
+        {
+            new Thread(autoAttack).Start();
+        }
+        if (isChoDau && GameCanvas.gameTick % 20 == 0)
+        {
+            new Thread(autoChoDau).Start();
+        }
+        if (isThuDau && GameCanvas.gameTick % 20 == 0)
+        {
+            new Thread(autoThuDau).Start();
+        }
+        if (isXinDau && GameCanvas.gameTick % 20 == 0)
+        {
+            new Thread(autoXinDau).Start();
+        }if (Goback.isGoback && GameCanvas.gameTick % 20 == 0)
+        {
+            new Thread(Goback.Gobacking).Start();
+        }
 
-	
+    }
 
     /// <summary>
     /// Sử lý các lệnh bằng phím tắt
@@ -453,7 +391,6 @@ internal class ModGame
         {
             case "ak":
                 isAttack = !isAttack;
-                new Thread(ModGame.autoAttack).Start();
                 GameScr.info1.addInfo((isAttack ? "Bật" : "Tắt") + " ak", 0);
                 break;
             case "ts":
@@ -463,17 +400,14 @@ internal class ModGame
                 break;
             case "chodau":
                 isChoDau = !isChoDau;
-                new Thread(autoChoDau).Start();
                 GameScr.info1.addInfo((isChoDau ? "Bật" : "Tắt") + " cho đậu", 0);
                 break;
             case "xindau":
                 isXinDau = !isXinDau;
-                new Thread(autoXinDau).Start();
                 GameScr.info1.addInfo((isXinDau ? "Bật" : "Tắt") + " xin đậu", 0);
                 break;
             case "thudau":
                 isThuDau = !isThuDau;
-                new Thread(autoThuDau).Start();
                 GameScr.info1.addInfo((isThuDau ? "Bật" : "Tắt") + " thu đậu", 0);
                 break;
             case "ttdt":
@@ -490,18 +424,21 @@ internal class ModGame
                 break;
             case "anhat":
                 isPickAll = !isPickAll;
-                new Thread(ModGame.autoPickAll).Start();
                 GameScr.info1.addInfo((isPickAll ? "Bật" : "Tắt") + " tự động nhặt", 0);
+                break;
+            case "anhatpet":
+                isPickPet = !isPickPet;
+                charX = Char.myCharz().cx;
+                charY = Char.myCharz().cy;
+                GameScr.info1.addInfo((isPickPet ? "Bật" : "Tắt") + " tự động nhặt đồ của đệ tử", 0);
                 break;
             case "anhatme":
                 isPickMe = !isPickMe;
-                new Thread(ModGame.autoPickMe).Start();
                 GameScr.info1.addInfo((isPickMe ? "Bật" : "Tắt") + " tự động nhặt đồ của bản thân", 0);
                 break;
             case "goback":
                 Goback.setGoback(TileMap.mapID, TileMap.zoneID, Char.myCharz().cx, Char.myCharz().cy);
                 Goback.isGoback = !Goback.isGoback;
-                new Thread(Goback.Gobacking).Start();
                 GameScr.info1.addInfo((Goback.isGoback ? "Bật" : "Tắt") + " goback", 0);
                 break;
             case "w":

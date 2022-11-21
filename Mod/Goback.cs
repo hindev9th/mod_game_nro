@@ -28,8 +28,6 @@ namespace Mod
 
         public static void Gobacking()
         {
-            while (Goback.isGoback)
-            {
                 if(Char.myCharz().cHP == 0 || Char.myCharz().cHP < 0)
                 {
                     Goback.isDie = true;
@@ -50,7 +48,7 @@ namespace Mod
                     GameScr.info1.addInfo("Goback thành công!", 0);
                 }
                 Thread.Sleep(2000);
-            }
+
         }
     }
 }
