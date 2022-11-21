@@ -3245,7 +3245,7 @@ public class Panel : IActionListener, IChatable
 
 	private void setTabBox()
 	{
-		currentListLength = checkCurrentListLength(Char.myCharz().arrItemBox.Length);
+		currentListLength = Char.myCharz().arrItemBox.Length;
 		ITEM_HEIGHT = 24;
 		cmyLim = currentListLength * ITEM_HEIGHT - hScroll;
 		if (cmyLim < 0)
@@ -3289,7 +3289,7 @@ public class Panel : IActionListener, IChatable
 
 	private void setTabInventory(bool resetSelect)
 	{
-		currentListLength = checkCurrentListLength(Char.myCharz().arrItemBody.Length + Char.myCharz().arrItemBag.Length);
+		currentListLength = Char.myCharz().arrItemBody.Length + Char.myCharz().arrItemBag.Length;
 		ITEM_HEIGHT = 24;
 		cmyLim = currentListLength * ITEM_HEIGHT - hScroll;
 		cmy = (cmtoY = cmyLast[currentTabIndex]);
@@ -4519,9 +4519,8 @@ public class Panel : IActionListener, IChatable
 		try
 		{
 			Item[] arrItemBox = Char.myCharz().arrItemBox;
-			currentListLength = checkCurrentListLength(arrItemBox.Length);
-			int num = arrItemBox.Length / 20 + ((arrItemBox.Length % 20 > 0) ? 1 : 0);
-			TAB_W_NEW = wScroll / num;
+			currentListLength = arrItemBox.Length;
+
 			for (int i = 0; i < currentListLength; i++)
 			{
 				int num2 = xScroll + 36;
@@ -4536,17 +4535,7 @@ public class Panel : IActionListener, IChatable
 				{
 					continue;
 				}
-				if (i == 0)
-				{
-					for (int j = 0; j < num; j++)
-					{
-						int num9 = ((j == newSelected && selected == 0) ? ((GameCanvas.gameTick % 10 < 7) ? (-1) : 0) : 0);
-						g.setColor((j != newSelected) ? 15723751 : 16383818);
-						g.fillRect(xScroll + j * TAB_W_NEW, num3 + 9 + num9, TAB_W_NEW - 1, 14);
-						mFont.tahoma_7_grey.drawString(g, string.Empty + j, xScroll + j * TAB_W_NEW + TAB_W_NEW / 2, yScroll + 11 + num9, mFont.CENTER);
-					}
-					continue;
-				}
+				
 				g.setColor((i != selected) ? 15196114 : 16383818);
 				g.fillRect(num2, num3, num4, h);
 				g.setColor((i != selected) ? 9993045 : 9541120);
@@ -5292,9 +5281,7 @@ public class Panel : IActionListener, IChatable
 		{
 			Item[] arrItemBody = Char.myCharz().arrItemBody;
 			Item[] arrItemBag = Char.myCharz().arrItemBag;
-			currentListLength = checkCurrentListLength(arrItemBody.Length + arrItemBag.Length);
-			int num = (arrItemBody.Length + arrItemBag.Length) / 20 + (((arrItemBody.Length + arrItemBag.Length) % 20 > 0) ? 1 : 0);
-			TAB_W_NEW = wScroll / num;
+			currentListLength = arrItemBody.Length + arrItemBag.Length;
 			for (int i = 0; i < currentListLength; i++)
 			{
 				int num2 = xScroll + 36;
@@ -5309,17 +5296,7 @@ public class Panel : IActionListener, IChatable
 				{
 					continue;
 				}
-				if (i == 0)
-				{
-					for (int j = 0; j < num; j++)
-					{
-						int num9 = ((j == newSelected && selected == 0) ? ((GameCanvas.gameTick % 10 < 7) ? (-1) : 0) : 0);
-						g.setColor((j != newSelected) ? 15723751 : 16383818);
-						g.fillRect(xScroll + j * TAB_W_NEW, num3 + 9 + num9, TAB_W_NEW - 1, 14);
-						mFont.tahoma_7_grey.drawString(g, string.Empty + j, xScroll + j * TAB_W_NEW + TAB_W_NEW / 2, yScroll + 11 + num9, mFont.CENTER);
-					}
-					continue;
-				}
+				
 				bool inventorySelect_isbody = GetInventorySelect_isbody(i, newSelected, Char.myCharz().arrItemBody);
 				int inventorySelect_body = GetInventorySelect_body(i, newSelected);
 				int inventorySelect_bag = GetInventorySelect_bag(i, newSelected, Char.myCharz().arrItemBody);
@@ -7190,16 +7167,14 @@ public class Panel : IActionListener, IChatable
 			{
 				return;
 			}
-			if (selected == 0)
-			{
-				setNewSelected(Char.myCharz().arrItemBody.Length + Char.myCharz().arrItemBag.Length, false);
-				return;
-			}
+			
 			currItem = null;
 			MyVector myVector = new MyVector();
-			if (!GetInventorySelect_isbody(selected, newSelected, Char.myCharz().arrItemBody))
+            Item[] arrItemBody = Char.myCharz().arrItemBody;
+			if (selected >= arrItemBody.Length)
 			{
-				Item item = Char.myCharz().arrItemBag[GetInventorySelect_bag(selected, newSelected, Char.myCharz().arrItemBody)];
+                sbyte b = (sbyte)(selected - arrItemBody.Length);
+                Item item = Char.myCharz().arrItemBag[b];
 				if (item != null)
 				{
 					currItem = item;
@@ -7227,7 +7202,7 @@ public class Panel : IActionListener, IChatable
 			}
 			else
 			{
-				Item item2 = Char.myCharz().arrItemBody[GetInventorySelect_body(selected, newSelected)];
+				Item item2 = Char.myCharz().arrItemBody[selected];
 				if (item2 != null)
 				{
 					currItem = item2;
@@ -8287,16 +8262,11 @@ public class Panel : IActionListener, IChatable
 		}
 		if (currentTabIndex == 1 || Equals(GameCanvas.panel2))
 		{
-			if (selected == 0)
-			{
-				setNewSelected(Char.myCharz().arrItemBody.Length + Char.myCharz().arrItemBag.Length, true);
-			}
-			else
-			{
+
 				Item[] arrItemBody = Char.myCharz().arrItemBody;
-				if (!GetInventorySelect_isbody(selected, newSelected, arrItemBody))
+				if (selected >= arrItemBody.Length)
 				{
-					sbyte b2 = (sbyte)GetInventorySelect_bag(selected, newSelected, arrItemBody);
+					sbyte b2 = (sbyte)(selected - arrItemBody.Length);
 					Item item2 = Char.myCharz().arrItemBag[b2];
 					if (item2 != null)
 					{
@@ -8321,7 +8291,7 @@ public class Panel : IActionListener, IChatable
 						currItem = item3;
 					}
 				}
-			}
+			
 		}
 		if (currItem != null)
 		{
@@ -10177,18 +10147,18 @@ public class Panel : IActionListener, IChatable
 
 	private bool GetInventorySelect_isbody(int select, int subSelect, Item[] arrItem)
 	{
-		int num = select - 1 + subSelect * 20;
+		int num = select + subSelect * 20;
 		return subSelect == 0 && num < arrItem.Length;
 	}
 
 	private int GetInventorySelect_body(int select, int subSelect)
 	{
-		return select - 1 + subSelect * 20;
+		return select  + subSelect * 20;
 	}
 
 	private int GetInventorySelect_bag(int select, int subSelect, Item[] arrItem)
 	{
-		int num = select - 1 + subSelect * 20;
+		int num = select  + subSelect * 20;
 		return num - arrItem.Length;
 	}
 

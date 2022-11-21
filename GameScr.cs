@@ -1844,11 +1844,7 @@ public class GameScr : mScreen, IChatable
 			{
 				xS[i] = i * (25 + padSkill);
 				yS[i] = ySkill;
-				if (xS.Length > 5 && i >= xS.Length / 2)
-				{
-					xS[i] = (i - xS.Length / 2) * (25 + padSkill);
-					yS[i] = ySkill - 32;
-				}
+
 			}
 			xHP = array.Length * (25 + padSkill);
 			yHP = ySkill;
@@ -1871,11 +1867,7 @@ public class GameScr : mScreen, IChatable
 			{
 				xS[j] = j * wSkill;
 				yS[j] = ySkill;
-				if (xS.Length > 5 && j >= xS.Length / 2)
-				{
-					xS[j] = (j - xS.Length / 2) * wSkill;
-					yS[j] = ySkill - 32;
-				}
+				
 			}
 			xHP = array.Length * wSkill;
 			yHP = ySkill;
@@ -1901,11 +1893,7 @@ public class GameScr : mScreen, IChatable
 		{
 			xS[k] = k * wSkill;
 			yS[k] = ySkill;
-			if (xS.Length > 5 && k >= xS.Length / 2)
-			{
-				xS[k] = (k - xS.Length / 2) * wSkill;
-				yS[k] = ySkill - 32;
-			}
+			
 		}
 	}
 
@@ -4744,13 +4732,11 @@ public class GameScr : mScreen, IChatable
 			return;
 		}
 		GameCanvas.debug("PA1", 1);
-		if (isFreez || (isUseFreez && ChatPopup.currChatPopup == null))
+		if (isUseFreez && ChatPopup.currChatPopup == null)
 		{
 			dem++;
 			if ((dem < 30 && dem >= 0 && GameCanvas.gameTick % 4 == 0) || (dem >= 30 && dem <= 50 && GameCanvas.gameTick % 3 == 0) || dem > 50)
 			{
-				g.setColor(16777215);
-				g.fillRect(0, 0, GameCanvas.w, GameCanvas.h);
 				if (dem <= 50)
 				{
 					return;
@@ -6010,12 +5996,9 @@ public class GameScr : mScreen, IChatable
 						}
 						string[] array3 = array2;
 						int num4 = -13;
-						if (num3 > 5 && i < 5)
-						{
-							num4 = 27;
-						}
+
 						mFont.tahoma_7b_dark.drawString(g, array3[i], xSkill + xS[i] + 14, yS[i] + num4, mFont.CENTER);
-						mFont.tahoma_7b_white.drawString(g, array3[i], xSkill + xS[i] + 14, yS[i] + num4 + 1, mFont.CENTER);
+						mFont.tahoma_7b_white.drawString(g, array3[i], xSkill + xS[i] + 14, yS[i] + num4 - 1, mFont.CENTER);
 					}
 					Skill skill = array[i];
 					if (skill != Char.myCharz().myskill)
