@@ -100,7 +100,7 @@ public class Main : MonoBehaviour
 			level = Rms.loadRMSInt("levelScreenKN");
 			if (level == 1)
 			{
-				Screen.SetResolution(720, 320, false);
+				Screen.SetResolution(320, 240, false);
 			}
 			else
 			{

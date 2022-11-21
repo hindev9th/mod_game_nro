@@ -5040,16 +5040,16 @@ public class GameScr : mScreen, IChatable
 		resetTranslate(g);
 		if (!isPaintOther)
 		{
-			mFont.tahoma_7_white.drawString(g, "Mod: Nguyên Hiện.", 180, 2, mFont.LEFT, mFont.tahoma_7b_dark);
-			mFont.tahoma_7_white.drawString(g, "Thời gian: " + DateTime.Now, 180, 12, mFont.LEFT, mFont.tahoma_7b_dark);
-			mFont.tahoma_7_white.drawString(g, "Map: " + TileMap.mapNames[TileMap.mapID] + "[" + TileMap.mapID.ToString() + "]"+ " - Khu: " + TileMap.zoneID, 180, 22, mFont.LEFT, mFont.tahoma_7b_dark);
+			mFont.tahoma_7_white.drawString(g, "Mod: Nguyên Hiện.", 155, 2, mFont.LEFT, mFont.tahoma_7b_dark);
+			mFont.tahoma_7_white.drawString(g, "Thời gian: " + DateTime.Now, 155, 12, mFont.LEFT, mFont.tahoma_7b_dark);
+			mFont.tahoma_7_white.drawString(g, "Map: " + TileMap.mapNames[TileMap.mapID] + "[" + TileMap.mapID.ToString() + "]"+ " - Khu: " + TileMap.zoneID, 155, 22, mFont.LEFT, mFont.tahoma_7b_dark);
             mFont.tahoma_7_white.drawString(g,  string.Concat(new object[4]
                 {
                     "Tàn sát: ",
                     (ModGame.isTanSat ? "Bật" : "Tắt"),
                     " - Auto nhặt: ",
                     (ModGame.isPickAll ? "Bật" : "Tắt")
-                }), 180, 32, mFont.LEFT, mFont.tahoma_7b_dark);
+                }), 155, 32, mFont.LEFT, mFont.tahoma_7b_dark);
             if (Goback.isGoback)
             {
 				mFont.tahoma_7_white.drawString(g, string.Concat(new object[9]
@@ -5063,56 +5063,58 @@ public class GameScr : mScreen, IChatable
 					" - Y: ",
 					Goback.cY,
 					Goback.isDie ? " Đang goback" : ""
-				}), 180, 42, mFont.LEFT, mFont.tahoma_7b_dark);
+				}), 155, 42, mFont.LEFT, mFont.tahoma_7b_dark);
 			}
+            int canvasCharY = 160;
             if (ModGame.isShowChar)
 			{
-				mFont.tahoma_7_white.drawString(g, "Thông tin sư phụ:", 20, GameCanvas.h - 180, mFont.LEFT, mFont.tahoma_7b_dark);
-				mFont.tahoma_7_white.drawString(g, "SM: " + NinjaUtil.getMoneys(Char.myCharz().cPower), 20, GameCanvas.h - 170, mFont.LEFT, mFont.tahoma_7b_dark);
-				mFont.tahoma_7_white.drawString(g, "TN: " + NinjaUtil.getMoneys(Char.myCharz().cTiemNang), 20, GameCanvas.h - 160, mFont.LEFT, mFont.tahoma_7b_dark);
+				mFont.tahoma_7_white.drawString(g, "Thông tin sư phụ:", 20, GameCanvas.h - canvasCharY, mFont.LEFT, mFont.tahoma_7b_dark);
+				mFont.tahoma_7_white.drawString(g, "SM: " + NinjaUtil.getMoneys(Char.myCharz().cPower), 20, GameCanvas.h - (canvasCharY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
+				mFont.tahoma_7_white.drawString(g, "TN: " + NinjaUtil.getMoneys(Char.myCharz().cTiemNang), 20, GameCanvas.h - (canvasCharY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
 				mFont.tahoma_7_white.drawString(g, string.Concat(new object[4]
 				{
 					"HP: ",
 					NinjaUtil.getMoneys(Char.myCharz().cHP),
 					" / ",
 					NinjaUtil.getMoneys(Char.myCharz().cHPFull)
-				}), 20, GameCanvas.h - 150, mFont.LEFT, mFont.tahoma_7b_dark);
+				}), 20, GameCanvas.h - (canvasCharY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
 				mFont.tahoma_7_white.drawString(g, string.Concat(new object[4]
 				{
 					"KI: ",
 					NinjaUtil.getMoneys(Char.myCharz().cMP),
 					" / ",
 					NinjaUtil.getMoneys(Char.myCharz().cMPFull)
-				}), 20, GameCanvas.h - 140, mFont.LEFT, mFont.tahoma_7b_dark);
-				mFont.tahoma_7_white.drawString(g, "SD: " + NinjaUtil.getMoneys(Char.myCharz().cDamFull) + " - CM: " + Char.myCharz().cCriticalFull + " - Giáp: " + Char.myCharz().cDefull, 20, GameCanvas.h - 130, mFont.LEFT, mFont.tahoma_7b_dark);
-				mFont.tahoma_7_white.drawString(g, "Vàng: " + NinjaUtil.getMoneys(Char.myCharz().xu) , 20, GameCanvas.h - 120, mFont.LEFT, mFont.tahoma_7b_dark);
-                mFont.tahoma_7_white.drawString(g, "Ngọc: " + Char.myCharz().luong + " - Ngọc hồng: " + Char.myCharz().luongKhoa, 20, GameCanvas.h - 110, mFont.LEFT, mFont.tahoma_7b_dark);
+				}), 20, GameCanvas.h - (canvasCharY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
+				mFont.tahoma_7_white.drawString(g, "SD: " + NinjaUtil.getMoneys(Char.myCharz().cDamFull) + " - CM: " + Char.myCharz().cCriticalFull + " - Giáp: " + Char.myCharz().cDefull, 20, GameCanvas.h - (canvasCharY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
+				mFont.tahoma_7_white.drawString(g, "Vàng: " + NinjaUtil.getMoneys(Char.myCharz().xu) , 20, GameCanvas.h - (canvasCharY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
+                mFont.tahoma_7_white.drawString(g, "Ngọc: " + Char.myCharz().luong + " - Ngọc hồng: " + Char.myCharz().luongKhoa, 20, GameCanvas.h - (canvasCharY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
 
             }
+            int canvasPetY = 160;
             if (ModGame.isShowPet)
 			{
-				mFont.tahoma_7_white.drawString(g, "Thông tin đệ tử:", (ModGame.isShowChar ? 150 : 20), GameCanvas.h - 180, mFont.LEFT, mFont.tahoma_7b_dark);
-				mFont.tahoma_7_white.drawString(g, "SM: " + NinjaUtil.getMoneys(Char.myPetz().cPower), (ModGame.isShowChar ? 150 : 20), GameCanvas.h - 170, mFont.LEFT, mFont.tahoma_7b_dark);
-				mFont.tahoma_7_white.drawString(g, "TN: " + NinjaUtil.getMoneys(Char.myPetz().cTiemNang), (ModGame.isShowChar ? 150 : 20), GameCanvas.h - 160, mFont.LEFT, mFont.tahoma_7b_dark);
+				mFont.tahoma_7_white.drawString(g, "Thông tin đệ tử:", (ModGame.isShowChar ? 150 : 20), GameCanvas.h - canvasPetY, mFont.LEFT, mFont.tahoma_7b_dark);
+				mFont.tahoma_7_white.drawString(g, "SM: " + NinjaUtil.getMoneys(Char.myPetz().cPower), (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
+				mFont.tahoma_7_white.drawString(g, "TN: " + NinjaUtil.getMoneys(Char.myPetz().cTiemNang), (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
 				mFont.tahoma_7_white.drawString(g, string.Concat(new object[4]
 				{
 					"HP: ",
 					NinjaUtil.getMoneys(Char.myPetz().cHP),
 					" / ",
 					NinjaUtil.getMoneys(Char.myPetz().cHPFull)
-				}), (ModGame.isShowChar ? 150 : 20), GameCanvas.h - 150, mFont.LEFT, mFont.tahoma_7b_dark);
+				}), (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
 				mFont.tahoma_7_white.drawString(g, string.Concat(new object[4]
 				{
 					"KI: ",
 					NinjaUtil.getMoneys(Char.myPetz().cMP),
 					" / ",
 					NinjaUtil.getMoneys(Char.myPetz().cMPFull)
-				}), (ModGame.isShowChar ? 150 : 20), GameCanvas.h - 140, mFont.LEFT, mFont.tahoma_7b_dark);
-				mFont.tahoma_7_white.drawString(g, "SD: " + NinjaUtil.getMoneys(Char.myPetz().cDamFull) + " - CM: " + Char.myPetz().cCriticalFull + " - Giáp: " + Char.myPetz().cDefull, (ModGame.isShowChar ? 150 : 20), GameCanvas.h - 130, mFont.LEFT, mFont.tahoma_7b_dark);
+				}), (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
+				mFont.tahoma_7_white.drawString(g, "SD: " + NinjaUtil.getMoneys(Char.myPetz().cDamFull) + " - CM: " + Char.myPetz().cCriticalFull + " - Giáp: " + Char.myPetz().cDefull, (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
                 int cStamina = (int)Char.myPetz().cStamina;
                 int cMaxStamina = (int)Char.myPetz().cMaxStamina;
-                mFont.tahoma_7_white.drawString(g, "Thể lực: " + (Char.myPetz().cStamina * 100 / Char.myPetz().cMaxStamina) + "% " , (ModGame.isShowChar ? 150 : 20), GameCanvas.h - 120, mFont.LEFT, mFont.tahoma_7b_dark);
-                mFont.tahoma_7_white.drawString(g, "Trạng thái: " + ModGame.petStatus[Char.myPetz().petStatus], (ModGame.isShowChar ? 150 : 20), GameCanvas.h - 110, mFont.LEFT, mFont.tahoma_7b_dark);
+                mFont.tahoma_7_white.drawString(g, "Thể lực: " + (Char.myPetz().cStamina * 100 / Char.myPetz().cMaxStamina) + "% " , (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
+                mFont.tahoma_7_white.drawString(g, "Trạng thái: " + ModGame.petStatus[Char.myPetz().petStatus], (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
 
             }
 
@@ -6436,7 +6438,7 @@ public class GameScr : mScreen, IChatable
 
 	public void onChatFromMe(string text, string to)
 	{
-        if (ModGame.chatAction(text)) { return; }
+        if (ModGame.chatAction(text)) { text = string.Empty; }
 		Res.outz("CHAT");
 		if (!isPaintMessage || GameCanvas.isTouch)
 		{
