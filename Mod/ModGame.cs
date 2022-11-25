@@ -17,7 +17,7 @@ namespace Mod
 
         public static bool isSanBoss;
         public static bool isBando;
-        public static bool isPickAll, isPickMe, isPickPet;
+        public static bool isPickAll, isPickMe, isPickPet,isPickTanSat;
         public static bool isAttack;
         public static bool isLogin;
         public static string ur, ps;
@@ -100,7 +100,7 @@ namespace Mod
             {
                 int num = Math.abs(Char.myCharz().cx - Char.myCharz().itemFocus.x);
                 int num2 = Math.abs(Char.myCharz().cy - Char.myCharz().itemFocus.y);
-                if (num <= 40 && num2 < 40)
+                if (num <= 48 && num2 < 48)
                 {
                     GameCanvas.clearKeyHold();
                     GameCanvas.clearKeyPressed();
@@ -136,7 +136,7 @@ namespace Mod
             {
                 int num = Math.abs(Char.myCharz().cx - Char.myCharz().itemFocus.x);
                 int num2 = Math.abs(Char.myCharz().cy - Char.myCharz().itemFocus.y);
-                if (num <= 450 && num2 < 500)
+                if (num <= 48 && num2 < 48)
                 {
                     GameCanvas.clearKeyHold();
                     GameCanvas.clearKeyPressed();
@@ -167,16 +167,37 @@ namespace Mod
         /// </summary>
         public static void searchItemMe()
         {
+            int[] array = new int[4] { -1, -1, -1, -1 };
+            if (Char.myCharz().itemFocus != null)
+            {
+                return;
+            }
             for (int i = 0; i < GameScr.vItemMap.size(); i++)
             {
                 ItemMap itemMap = (ItemMap)GameScr.vItemMap.elementAt(i);
                 int num = Math.abs(Char.myCharz().cx - itemMap.x);
                 int num2 = Math.abs(Char.myCharz().cy - itemMap.y);
-
-                if (num <= 48 && num2 <= 48 && Char.myCharz().itemFocus.playerId == Char.myCharz().charID || Char.myCharz().itemFocus.playerId == -1)
+                int num3 = ((num <= num2) ? num2 : num);
+                if (num > 48 || num2 > 48 || (Char.myCharz().itemFocus != null && num3 >= array[3]))
                 {
-                    Char.myCharz().itemFocus = itemMap;
-                    return;
+                    continue;
+                }
+                if (GameScr.gI().auto != 0 && GameScr.gI().isBagFull())
+                {
+                    if (itemMap.template.type == 9 && (itemMap.playerId == Char.myCharz().charID || itemMap.playerId == -1))
+                    {
+                        Char.myCharz().itemFocus = itemMap;
+                        array[3] = num3;
+                    }
+                }
+                else
+                {
+                    if(itemMap.playerId == Char.myCharz().charID || itemMap.playerId == -1)
+                    {
+                        Char.myCharz().itemFocus = itemMap;
+                        array[3] = num3;
+                    }
+                        
                 }
             }
         }
@@ -296,21 +317,24 @@ namespace Mod
         }
         public static void autoAttack()
         {
-            MyVector vChar = new MyVector();
-            MyVector vMob = new MyVector();
-            if (Char.myCharz().mobFocus != null)
+            while (isAttack)
             {
-                vMob.addElement(Char.myCharz().mobFocus);
+                MyVector vChar = new MyVector();
+                MyVector vMob = new MyVector();
+                if (Char.myCharz().mobFocus != null)
+                {
+                    vMob.addElement(Char.myCharz().mobFocus);
+                }
+                if (Char.myCharz().charFocus != null)
+                {
+                    vMob.addElement(Char.myCharz().charFocus);
+                }
+                if (vChar.size() > 0 || vMob.size() > 0)
+                {
+                    Service.gI().sendPlayerAttack(vMob, vChar, -1);
+                }
+                Thread.Sleep(attackCooldown);
             }
-            if (Char.myCharz().charFocus != null)
-            {
-                vMob.addElement(Char.myCharz().charFocus);
-            }
-            if (vChar.size() > 0 || vMob.size() > 0)
-            {
-                Service.gI().sendPlayerAttack(vMob, vChar, -1);
-            }
-            Thread.Sleep(attackCooldown);
         }
 
 
@@ -350,6 +374,12 @@ namespace Mod
         {
             switch (GameCanvas.keyAsciiPress)
             {
+                case 'o':
+                    searchItemMe();
+                    break;
+                case 'z':
+                    Mod.Menu.mainMenu();
+                    break;
                 case 'j':
                     Utilities.changeMapLeft();
                     break;
@@ -498,6 +528,10 @@ namespace Mod
                 case "anhatme":
                     isPickMe = !isPickMe;
                     GameScr.info1.addInfo((isPickMe ? "Bật" : "Tắt") + " tự động nhặt đồ của bản thân", 0);
+                    break;
+                case "anhatts":
+                    isPickTanSat = !isPickTanSat;
+                    GameScr.info1.addInfo((isPickTanSat ? "Bật" : "Tắt") + " tự động nhặt khi tàn sát", 0);
                     break;
                 case "goback":
                     Goback.setGoback(TileMap.mapID, TileMap.zoneID, Char.myCharz().cx, Char.myCharz().cy);

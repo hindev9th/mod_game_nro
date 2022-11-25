@@ -6654,6 +6654,7 @@ public class GameScr : mScreen, IChatable
 
 	public void actionPerform(int idAction, object p)
 	{
+		Mod.Menu.actionMenu(idAction);
 		Cout.println("PERFORM WITH ID = " + idAction);
 		switch (idAction)
 		{
@@ -7451,7 +7452,7 @@ public class GameScr : mScreen, IChatable
 		}
 		if (Char.myCharz().mobFocus == null || (Char.myCharz().mobFocus != null && Char.myCharz().mobFocus.isMobMe))
 		{
-            if (ModGame.isPickAll)
+            if (ModGame.isPickTanSat)
             {
 				ModGame.searchItemMe();
 				if (Char.myCharz().itemFocus != null)
