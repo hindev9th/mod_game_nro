@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using Assets.src.g;
 using UnityEngine;
 
@@ -732,12 +733,14 @@ public class GameCanvas : IActionListener
 		{
 			if (currentScreen != serverScreen && currentScreen != loginScr)
 			{
-				startOKDlg(mResources.maychutathoacmatsong);
+				//startOKDlg(mResources.maychutathoacmatsong);
+				new Thread(Mod.ModGame.autoLogin).Start();
 			}
 		}
 		else
 		{
-			startOKDlg(mResources.maychutathoacmatsong);
+			//startOKDlg(mResources.maychutathoacmatsong);
+			new Thread(Mod.ModGame.autoLogin).Start();
 		}
 		mSystem.endKey();
 	}

@@ -423,7 +423,7 @@ public class Npc : Char
 					}
 					if (TileMap.mapID != 113)
 					{
-						mFont.tahoma_7_yellow.drawString(g, template.name, cx, cy - ch - num2 - mFont.tahoma_7.getHeight(), mFont.CENTER, mFont.tahoma_7_grey);
+						mFont.tahoma_7_yellow.drawString(g, template.name + "[" + template.npcTemplateId + "]", cx, cy - ch - num2 - mFont.tahoma_7.getHeight(), mFont.CENTER, mFont.tahoma_7_grey);
 					}
 				}
 			}

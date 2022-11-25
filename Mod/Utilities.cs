@@ -644,5 +644,7 @@ namespace Mod
         {
             typeof(GameScr).GetMethod("doDoubleClickToObj", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.InvokeMethod).Invoke(GameScr.gI(), new object[] { mapObject });
         }
+
+       
     }
 }

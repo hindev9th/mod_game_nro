@@ -5043,13 +5043,13 @@ public class GameScr : mScreen, IChatable
 			mFont.tahoma_7_white.drawString(g, "Mod: Nguyên Hiện.", 155, 2, mFont.LEFT, mFont.tahoma_7b_dark);
 			mFont.tahoma_7_white.drawString(g, "Thời gian: " + DateTime.Now, 155, 12, mFont.LEFT, mFont.tahoma_7b_dark);
 			mFont.tahoma_7_white.drawString(g, "Map: " + TileMap.mapNames[TileMap.mapID] + "[" + TileMap.mapID.ToString() + "]"+ " - Khu: " + TileMap.zoneID, 155, 22, mFont.LEFT, mFont.tahoma_7b_dark);
-            mFont.tahoma_7_white.drawString(g,  string.Concat(new object[4]
-                {
-                    "Tàn sát: ",
-                    (ModGame.isTanSat ? "Bật" : "Tắt"),
-                    " - Auto nhặt: ",
-                    (ModGame.isPickAll ? "Bật" : "Tắt")
-                }), 155, 32, mFont.LEFT, mFont.tahoma_7b_dark);
+			mFont.tahoma_7_white.drawString(g, string.Concat(new object[4]
+				{
+					"Tàn sát: ",
+					(ModGame.isTanSat ? "Bật" : "Tắt"),
+					" - Auto nhặt: ",
+					(ModGame.isPickAll ? "Bật" : "Tắt")
+				}), 155, 32, mFont.LEFT, mFont.tahoma_7b_dark);
             if (Goback.isGoback)
             {
 				mFont.tahoma_7_white.drawString(g, string.Concat(new object[9]
@@ -5065,7 +5065,11 @@ public class GameScr : mScreen, IChatable
 					Goback.isDie ? " Đang goback" : ""
 				}), 155, 42, mFont.LEFT, mFont.tahoma_7b_dark);
 			}
-            int canvasCharY = 160;
+			if (Goback.isrunToBando)
+			{
+				mFont.tahoma_7_white.drawString(g, "Bán đồ khi full: " + (Goback.isrunToBando ? "Bật" : "Tắt") + " - Tình trạng: " + (GameScr.gI().isBagFull() ? "Full" : "Not full"), 155, 52, mFont.LEFT, mFont.tahoma_7b_dark);
+			}
+			int canvasCharY = 160;
             if (ModGame.isShowChar)
 			{
 				mFont.tahoma_7_white.drawString(g, "Thông tin sư phụ:", 20, GameCanvas.h - canvasCharY, mFont.LEFT, mFont.tahoma_7b_dark);
@@ -5093,28 +5097,36 @@ public class GameScr : mScreen, IChatable
             int canvasPetY = 160;
             if (ModGame.isShowPet)
 			{
-				mFont.tahoma_7_white.drawString(g, "Thông tin đệ tử:", (ModGame.isShowChar ? 150 : 20), GameCanvas.h - canvasPetY, mFont.LEFT, mFont.tahoma_7b_dark);
-				mFont.tahoma_7_white.drawString(g, "SM: " + NinjaUtil.getMoneys(Char.myPetz().cPower), (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
-				mFont.tahoma_7_white.drawString(g, "TN: " + NinjaUtil.getMoneys(Char.myPetz().cTiemNang), (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
-				mFont.tahoma_7_white.drawString(g, string.Concat(new object[4]
-				{
+                try
+                {
+					mFont.tahoma_7_white.drawString(g, "Thông tin đệ tử:", (ModGame.isShowChar ? 150 : 20), GameCanvas.h - canvasPetY, mFont.LEFT, mFont.tahoma_7b_dark);
+					mFont.tahoma_7_white.drawString(g, "SM: " + NinjaUtil.getMoneys(Char.myPetz().cPower), (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
+					mFont.tahoma_7_white.drawString(g, "TN: " + NinjaUtil.getMoneys(Char.myPetz().cTiemNang), (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
+					mFont.tahoma_7_white.drawString(g, string.Concat(new object[4]
+					{
 					"HP: ",
 					NinjaUtil.getMoneys(Char.myPetz().cHP),
 					" / ",
 					NinjaUtil.getMoneys(Char.myPetz().cHPFull)
-				}), (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
-				mFont.tahoma_7_white.drawString(g, string.Concat(new object[4]
-				{
+					}), (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
+					mFont.tahoma_7_white.drawString(g, string.Concat(new object[4]
+					{
 					"KI: ",
 					NinjaUtil.getMoneys(Char.myPetz().cMP),
 					" / ",
 					NinjaUtil.getMoneys(Char.myPetz().cMPFull)
-				}), (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
-				mFont.tahoma_7_white.drawString(g, "SD: " + NinjaUtil.getMoneys(Char.myPetz().cDamFull) + " - CM: " + Char.myPetz().cCriticalFull + " - Giáp: " + Char.myPetz().cDefull, (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
-                int cStamina = (int)Char.myPetz().cStamina;
-                int cMaxStamina = (int)Char.myPetz().cMaxStamina;
-                mFont.tahoma_7_white.drawString(g, "Thể lực: " + (Char.myPetz().cStamina * 100 / Char.myPetz().cMaxStamina) + "% " , (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
-                mFont.tahoma_7_white.drawString(g, "Trạng thái: " + ModGame.petStatus[Char.myPetz().petStatus], (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
+					}), (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
+					mFont.tahoma_7_white.drawString(g, "SD: " + NinjaUtil.getMoneys(Char.myPetz().cDamFull) + " - CM: " + Char.myPetz().cCriticalFull + " - Giáp: " + Char.myPetz().cDefull, (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
+					int cStamina = (int)Char.myPetz().cStamina;
+					int cMaxStamina = (int)Char.myPetz().cMaxStamina;
+					mFont.tahoma_7_white.drawString(g, "Thể lực: " + (Char.myPetz().cStamina * 100 / Char.myPetz().cMaxStamina) + "% ", (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
+					mFont.tahoma_7_white.drawString(g, "Trạng thái: " + ModGame.petStatus[Char.myPetz().petStatus], (ModGame.isShowChar ? 150 : 20), GameCanvas.h - (canvasPetY -= 10), mFont.LEFT, mFont.tahoma_7b_dark);
+                }
+                catch
+                {
+
+                }
+				
 
             }
 
@@ -7401,17 +7413,11 @@ public class GameScr : mScreen, IChatable
 		{
 			timeSkill--;
 		}
-		if (!ModGame.isTanSat || isChangeZone || Char.myCharz().statusMe == 14 || Char.myCharz().statusMe == 5 || Char.myCharz().isCharge || Char.myCharz().isFlyAndCharge || Char.myCharz().isUseChargeSkill())
+		if (!ModGame.isTanSat || (TileMap.mapID != ModGame.isChangeMap) || isChangeZone || Char.myCharz().statusMe == 14 || Char.myCharz().statusMe == 5 || Char.myCharz().isCharge || Char.myCharz().isFlyAndCharge || Char.myCharz().isUseChargeSkill())
 		{
 			return;
 		}
-		ModGame.searchItemMe();
-		if (Char.myCharz().itemFocus != null && Char.myCharz().itemFocus.playerId == Char.myCharz().charID && ModGame.isPickAll)
-		{
-			GameScr.gI().pickItem();
-			ModGame.searchItemMe();
-			return;
-		}
+		
 		bool flag = false;
 		for (int i = 0; i < vMob.size(); i++)
 		{
@@ -7445,13 +7451,32 @@ public class GameScr : mScreen, IChatable
 		}
 		if (Char.myCharz().mobFocus == null || (Char.myCharz().mobFocus != null && Char.myCharz().mobFocus.isMobMe))
 		{
+            if (ModGame.isPickAll)
+            {
+				ModGame.searchItemMe();
+				if (Char.myCharz().itemFocus != null)
+				{
+					GameScr.gI().pickItem();
+					if (GameScr.gI().isBagFull() && Goback.isrunToBando)
+					{
+						Goback.runToBando = true;
+					}
+					ModGame.searchItemMe();
+				}
+            }
+            else
+            {
+				Char.myCharz().itemFocus = null;
+
+			}
+			
 			for (int k = 0; k < vMob.size(); k++)
 			{
 				Mob mob2 = (Mob)vMob.elementAt(k);
 				int num6 = Math.abs(Char.myCharz().cx - mob2.x);
 				int num7 = Math.abs(Char.myCharz().cy - mob2.y);
 				int num8 = ((num6 <= num7) ? num7 : num6);
-				if (mob2.status != 0 && mob2.status != 1 && mob2.hp > 0 && !mob2.isMobMe && !mob2.isBigBoss())
+				if (mob2.status != 0 && mob2.status != 1 && mob2.hp > 0 && !mob2.isMobMe && mob2.levelBoss != 1 && Char.myCharz().itemFocus == null)
 				{
 					Utilities.teleportMyChar(mob2.x, mob2.y);
 					Char.myCharz().mobFocus = mob2;

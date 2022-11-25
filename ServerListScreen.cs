@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 
 public class ServerListScreen : mScreen, IActionListener
 {
@@ -767,6 +768,7 @@ public class ServerListScreen : mScreen, IActionListener
 				else
 				{
 					GameCanvas.startOKDlg(mResources.maychutathoacmatsong);
+					new Thread(Mod.ModGame.autoLogin).Start();
 				}
 			}
 			else

@@ -1,6 +1,7 @@
 using System;
 using Assets.src.e;
 using Assets.src.g;
+using Mod;
 
 public class Char : IMapObject
 {
