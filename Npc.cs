@@ -221,6 +221,8 @@ public class Npc : Char
 				if (Char.myCharz().npcFocus != null && Char.myCharz().npcFocus.Equals(this) && ChatPopup.currChatPopup == null)
 				{
 					g.drawRegion(Mob.imgHP, 0, 0, 9, 6, 0, cx, cy - ch + 4, mGraphics.BOTTOM | mGraphics.HCENTER);
+					mFont.tahoma_7b_red.drawString(g, NinjaUtil.getMoneys(cHP), cx, cy - ch - 20 - mFont.tahoma_7b_red.getHeight(), mFont.CENTER, mFont.tahoma_7b_white);
+
 				}
 				dyEff = 60;
 			}
@@ -264,6 +266,8 @@ public class Npc : Char
 							if (ChatPopup.currChatPopup == null)
 							{
 								g.drawRegion(Mob.imgHP, 0, 0, 9, 6, 0, cx, cy - ch - 9 + 16 - num, mGraphics.BOTTOM | mGraphics.HCENTER);
+								mFont.tahoma_7b_red.drawString(g, NinjaUtil.getMoneys(cHP), cx, cy - ch - 20 - mFont.tahoma_7b_red.getHeight(), mFont.CENTER, mFont.tahoma_7b_white);
+
 							}
 							mFont.tahoma_7b_white.drawString(g, NinjaUtil.getTime(seconds), cx, cy - ch - 16 - mFont.tahoma_7.getHeight() - 20 - num + 16, mFont.CENTER, mFont.tahoma_7b_dark);
 						}
@@ -279,6 +283,8 @@ public class Npc : Char
 					if (Char.myCharz().npcFocus != null && Char.myCharz().npcFocus.Equals(this) && ChatPopup.currChatPopup == null)
 					{
 						g.drawRegion(Mob.imgHP, 0, 0, 9, 6, 0, cx, cy - ch - 9, mGraphics.BOTTOM | mGraphics.HCENTER);
+						mFont.tahoma_7b_red.drawString(g, NinjaUtil.getMoneys(cHP), cx, cy - ch - 20 - mFont.tahoma_7b_red.getHeight(), mFont.CENTER, mFont.tahoma_7b_white);
+
 					}
 					mFont.tahoma_7b_white.drawString(g, TileMap.zoneID + string.Empty, cx, cy - ch + 19 - mFont.tahoma_7.getHeight(), mFont.CENTER);
 				}
@@ -314,6 +320,8 @@ public class Npc : Char
 							if (ChatPopup.currChatPopup == null)
 							{
 								g.drawRegion(Mob.imgHP, 0, 0, 9, 6, 0, cx, cy - ch - (num2 - 8), mGraphics.BOTTOM | mGraphics.HCENTER);
+								mFont.tahoma_7b_red.drawString(g, NinjaUtil.getMoneys(cHP), cx, cy - ch - 20 - mFont.tahoma_7b_red.getHeight(), mFont.CENTER, mFont.tahoma_7b_white);
+
 							}
 						}
 						else

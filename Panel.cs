@@ -3426,7 +3426,7 @@ public class Panel : IActionListener, IChatable
                     }
                     else if (type == 14)
                     {
-                        Service.gI().requestMapSelect(selected);
+                        //Service.gI().requestMapSelect(selected);
                         Mod.Xmap.Pk9rXmap.SelectMapTrans(selected);
                     }
                 }
@@ -5654,7 +5654,7 @@ public class Panel : IActionListener, IChatable
         }
         if (Char.myPetz().cDamFull > 0)
         {
-            mFont.tahoma_7_yellow.drawString(g, mResources.hit_point + " :" + Char.myPetz().cDamFull, X + 60, 27, mFont.LEFT, mFont.tahoma_7_grey);
+            mFont.tahoma_7_yellow.drawString(g, mResources.hit_point + " :" + NinjaUtil.getMoneys(Char.myPetz().cDamFull), X + 60, 27, mFont.LEFT, mFont.tahoma_7_grey);
         }
         if (Char.myPetz().cMaxStamina > 0)
         {

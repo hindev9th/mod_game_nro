@@ -44,7 +44,7 @@ namespace Mod
 
         public static string username = "";
         public static string password = "";
-
+        public static long times = 0;
 
         #region Get Methods
         /// <summary>
@@ -306,12 +306,27 @@ namespace Mod
 
             // Đặt thời gian hồi cho skill
             skillBuff.lastTimeUseThisSkill = mSystem.currentTimeMillis();
+            times = mSystem.currentTimeMillis();
         }
 
+        public static void autoHSNM()
+        {
+            while (ModGame.isHSNM)
+            {
+                long num = mSystem.currentTimeMillis();
+                long num2 = num - times;
+                if (num2 > Char.myCharz().
+                    getSkill(new SkillTemplate { id = ID_SKILL_BUFF }).coolDown)
+                {
+                    buffMe();
+                }
+                Thread.Sleep(1000);
+            }
+        }
         public static void autoAttackSkillLong(MyVector myVector,MyVector myVector1)
         {
-            //23: trói , 5: automic , 3: masenko ,6 kame
-            sbyte[] skill = { 23, 5, 3, 6 };
+            //23: trói , 5: automic ,socola ,3: masenko ,6 kame
+            sbyte[] skill = { 23, 5, 18, 3, 6 };
             for(int i = 0; i < skill.Length; i++)
             {
                 if (canSkillUse(skill[i]))
@@ -319,7 +334,7 @@ namespace Mod
                     // Đổi sang skill 
                     Service.gI().selectSkill(skill[i]);
 
-                    // Tự tấn công vào bản thân
+                    // Tự tấn công 
                     Service.gI().sendPlayerAttack(myVector, myVector1, -1);
 
                     // Trả về skill cũ

@@ -14,18 +14,21 @@ namespace Mod
         public static bool isShowPet;
 
         public static bool isShowChar;
+        public static bool isHSNM;
 
         public static bool isSanBoss;
         public static bool isBando;
         public static bool isPickAll, isPickMe, isPickPet,isPickTanSat;
         public static bool isAttack;
         public static bool isLogin;
+        public static bool isKhu;
         public static string ur, ps;
         public static int charX, charY;
         public static string[] petStatus = { "Đi theo", "Bảo vệ", "Tấn Công", "Về nhà", "Hợp thể", "Hợp thể vĩnh viễn" };
         static ModGame modGame;
         private static bool isHutItem;
         public static int attackCooldown = 500;
+        public static int khu,check=0;
 
         public static ModGame clone()
         {
@@ -34,6 +37,31 @@ namespace Mod
                 modGame = new ModGame();
             }
             return modGame;
+        }
+        public static void akhu()
+        {
+            if (isKhu)
+            {
+                if (check == 0)
+                {
+                    check += 1;
+                    GameScr.info1.addInfo("Chuẩn bị chuyển sang khu :" + khu, 0);
+                    Thread.Sleep(35000);
+
+                    if (TileMap.zoneID != khu)
+                    {
+                        try
+                        {
+                            Utilities.changeZone(khu);
+                        }
+                        catch
+                        {
+                            GameScr.info1.addInfo("Lỗi không thể chuyển khu!", 0);
+                        }
+                    }
+                    check = 0;
+                }
+            }
         }
         public static void autoLogin()
         {
@@ -277,9 +305,11 @@ namespace Mod
 
         public static void autoXinDau()
         {
-
-            Service.gI().clanMessage(1, "", -1);
-            Thread.Sleep(302000);
+            while (isXinDau)
+            {
+                Service.gI().clanMessage(1, "", -1);
+                Thread.Sleep(302000);
+            }
 
         }
         public static void autoThuDau()
@@ -363,6 +393,7 @@ namespace Mod
             {
                 new Thread(autoThuDau).Start();
             }
+            
 
         }
 
@@ -469,6 +500,11 @@ namespace Mod
 
             switch (text)
             {
+                case "akhu":
+                    khu = TileMap.zoneID;
+                    isKhu = !isKhu;
+                    GameScr.info1.addInfo((isKhu ? "Bật" : "Tắt") + " tự đông quay lại khu khi đăng nhập", 0);
+                    break;
                 case "alogin":
                     ur = GameCanvas.loginScr.tfUser.getText();
                     ps = GameCanvas.loginScr.tfPass.getText();
@@ -489,6 +525,12 @@ namespace Mod
                     isTanSat = !isTanSat;
                     isChangeMap = TileMap.mapID;
                     GameScr.info1.addInfo((isTanSat ? "Bật" : "Tắt") + " tàn sát", 0);
+                    break;
+                case "ahsnm":
+                    Utilities.buffMe();
+                    isHSNM = !isHSNM;
+                    new Thread(Utilities.autoHSNM).Start();
+                    GameScr.info1.addInfo((isHSNM ? "Bật" : "Tắt") + " auto hồi sinh namec", 0);
                     break;
                 case "chodau":
                     isChoDau = !isChoDau;

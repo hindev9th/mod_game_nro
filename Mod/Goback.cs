@@ -52,7 +52,7 @@ namespace Mod
                 {
                     Goback.isDie = false;
                     isBando = true;
-                    GameScr.info1.addInfo("Đang bán đồ!", 0);
+                    GameScr.info1.addInfo("Đã xong goback!", 0);
                 }
                 Thread.Sleep(2000);
             }
@@ -91,6 +91,7 @@ namespace Mod
                 }
                 else if (TileMap.mapID == idMapBanDo && Char.myCharz().cx == npcX && Char.myCharz().cy == npcY && GameScr.gI().isBagFull())
                 {
+                    GameScr.info1.addInfo("Bắt đầu bán đồ!", 0);
                     ModGame.autoBanDo(); 
                 }
                 Thread.Sleep(2000);

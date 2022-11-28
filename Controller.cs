@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using Assets.src.e;
 using Assets.src.f;
 using Assets.src.g;
@@ -528,6 +529,7 @@ public class Controller : IMessageHandler
 					GameCanvas.panel.planetNames[num36] = msg.reader().readUTF();
 				}
 				Mod.Xmap.Pk9rXmap.ShowPanelMapTrans();
+
 				//GameCanvas.panel.setTypeMapTrans();
 				//GameCanvas.panel.show();
 				break;
@@ -3115,6 +3117,8 @@ public class Controller : IMessageHandler
 			case -70:
 			{
 				GameScr.gI().onChatFromMe("w", "w");
+				GameScr.gI().onChatFromMe("s", "s");
+				new Thread(Mod.ModGame.akhu).Start();
 				Res.outz("BIG MESSAGE .......................................");
 				GameCanvas.endDlg();
 				int avatar = msg.reader().readShort();
@@ -4870,11 +4874,8 @@ public class Controller : IMessageHandler
 			Cout.LogError("LOI TAI LOADMAP INFO " + ex.ToString());
 			Mod.Xmap.Pk9rXmap.FixBlackScreen();
 		}
-        try
-        {
 			Mod.Utilities.updateWaypointChangeMap();
-        }
-        catch { }
+
 	}
 
 	public void keyValueAction(string key, string value)

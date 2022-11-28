@@ -69,6 +69,12 @@ namespace Mod
                 case 20:
                     GameScr.gI().onChatFromMe("bando", "bando");
                     break;
+                case 21:
+                    GameScr.gI().onChatFromMe("ahsnm", "ahsnm");
+                    break;
+                case 22:
+                    GameScr.gI().onChatFromMe("akhu", "akhu");
+                    break;
             }
         }
 
@@ -138,6 +144,10 @@ namespace Mod
             myVector.addElement(new Command("Auto login: " + (ModGame.isLogin ? "Bật" : "Tắt"), 18));
             myVector.addElement(new Command("Goback: " + (Goback.isGoback ? "Bật" : "Tắt"), 19));
             myVector.addElement(new Command("Bán đồ khi full: " + (Goback.isrunToBando ? "Bật" : "Tắt"), 20));
+            //if(Char.myCharz().nClass.classId == 1)
+                //myVector.addElement(new Command("Auto hsmn: " + (ModGame.isHSNM ? "Bật" : "Tắt"), 21));
+
+            myVector.addElement(new Command("Quay lại khu: " + (ModGame.isKhu ? ModGame.khu :TileMap.zoneID) + " : " + (ModGame.isKhu ? "Bật" : "Tắt"), 22));
             GameCanvas.menu.startAt(myVector, myVector.size());
         }
     }

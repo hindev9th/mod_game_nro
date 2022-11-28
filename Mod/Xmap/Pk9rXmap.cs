@@ -96,18 +96,6 @@ namespace Mod.Xmap
                 }
                 else if (text.Contains("Có lỗi xảy ra vui lòng thử lại sau"))
                 {
-                    switch (TileMap.mapID)
-                    {
-                        case 27:
-                            Utilities.changeMapRight();
-                            return;
-                        case 28:
-                            Utilities.changeMapRight();
-                            return;
-                        case 29:
-                            Utilities.changeMapLeft();
-                            return;
-                    }
                     XmapController.MoveMyChar(XmapUtils.getX(2), XmapUtils.getY(2));
                 }
             }

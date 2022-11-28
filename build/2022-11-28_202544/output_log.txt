@@ -1,0 +1,362 @@
+Initialize engine version: 5.6.7f1 (e80cc3114ac1)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3050 Laptop GPU (ID=0x25a2)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   30.0.15.1278
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.101 seconds
+Platform assembly: D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\System.dll (this message is harmless)
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+desktop: 1920x1080 144Hz; virtual: 1920x1080 at 0,0
+<RI> Initialized touch support.
+UnloadTime: 1.523200 ms
+Setting up 10 worker threads for Enlighten.
+  Thread -> id: 503c -> priority: 1 
+  Thread -> id: 25f0 -> priority: 1 
+  Thread -> id: 5564 -> priority: 1 
+  Thread -> id: b58 -> priority: 1 
+  Thread -> id: 5940 -> priority: 1 
+  Thread -> id: 6198 -> priority: 1 
+  Thread -> id: 24fc -> priority: 1 
+  Thread -> id: 1b30 -> priority: 1 
+  Thread -> id: 46d4 -> priority: 1 
+  Thread -> id: 5334 -> priority: 1 
+init Session_ME
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+init Session_ME
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Trying to create a material from string - this is no longer supported.
+ 
+(Filename:  Line: 1086)
+
+connecting...!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+host: dragon6.teamobi.com
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+port: 14445
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Initialize engine version: 5.6.7f1 (e80cc3114ac1)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3050 Laptop GPU (ID=0x25a2)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   30.0.15.1278
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.014 seconds
+Platform assembly: D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Managed\System.dll (this message is harmless)
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+desktop: 1920x1080 144Hz; virtual: 1920x1080 at 0,0
+<RI> Initialized touch support.
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 162 unused Assets to reduce memory usage. Loaded Objects now: 1039.
+Total: 0.662600 ms (FindLiveObjects: 0.035100 ms CreateObjectMapping: 0.022400 ms MarkObjects: 0.532000 ms  DeleteObjects: 0.072700 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 911.
+Total: 0.694700 ms (FindLiveObjects: 0.027300 ms CreateObjectMapping: 0.015200 ms MarkObjects: 0.642200 ms  DeleteObjects: 0.009600 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 712.
+Total: 0.719800 ms (FindLiveObjects: 0.021200 ms CreateObjectMapping: 0.013000 ms MarkObjects: 0.683900 ms  DeleteObjects: 0.001200 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 128 unused Assets to reduce memory usage. Loaded Objects now: 810.
+Total: 1.078600 ms (FindLiveObjects: 0.026100 ms CreateObjectMapping: 0.015000 ms MarkObjects: 0.975100 ms  DeleteObjects: 0.061900 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 811.
+Total: 0.876400 ms (FindLiveObjects: 0.023800 ms CreateObjectMapping: 0.014000 ms MarkObjects: 0.834000 ms  DeleteObjects: 0.004200 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 811.
+Total: 0.767100 ms (FindLiveObjects: 0.020600 ms CreateObjectMapping: 0.014200 ms MarkObjects: 0.731100 ms  DeleteObjects: 0.001000 ms)
+
+UnloadTime: 0.589200 ms
+Setting up 10 worker threads for Enlighten.
+  Thread -> id: 38ac -> priority: 1 
+  Thread -> id: 4598 -> priority: 1 
+  Thread -> id: 601c -> priority: 1 
+  Thread -> id: 434c -> priority: 1 
+  Thread -> id: 4044 -> priority: 1 
+  Thread -> id: 1a48 -> priority: 1 
+  Thread -> id: 4d90 -> priority: 1 
+  Thread -> id: 5a10 -> priority: 1 
+  Thread -> id: 5fac -> priority: 1 
+  Thread -> id: 43f8 -> priority: 1 
+init Session_ME
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+init Session_ME
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Trying to create a material from string - this is no longer supported.
+ 
+(Filename:  Line: 1086)
+
+connecting...!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+host: dragon6.teamobi.com
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+port: 14445
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 110 unused Assets to reduce memory usage. Loaded Objects now: 955.
+Total: 1.438400 ms (FindLiveObjects: 0.038400 ms CreateObjectMapping: 0.032300 ms MarkObjects: 1.286600 ms  DeleteObjects: 0.080600 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 120 unused Assets to reduce memory usage. Loaded Objects now: 891.
+Total: 1.534500 ms (FindLiveObjects: 0.043300 ms CreateObjectMapping: 0.027800 ms MarkObjects: 1.375900 ms  DeleteObjects: 0.086800 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 880.
+Total: 1.350000 ms (FindLiveObjects: 0.067600 ms CreateObjectMapping: 0.022600 ms MarkObjects: 1.241500 ms  DeleteObjects: 0.017700 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 915.
+Total: 1.332400 ms (FindLiveObjects: 0.042000 ms CreateObjectMapping: 0.022900 ms MarkObjects: 1.254600 ms  DeleteObjects: 0.012300 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 915.
+Total: 1.296800 ms (FindLiveObjects: 0.034600 ms CreateObjectMapping: 0.021800 ms MarkObjects: 1.238300 ms  DeleteObjects: 0.001600 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 915.
+Total: 1.302400 ms (FindLiveObjects: 0.037200 ms CreateObjectMapping: 0.022100 ms MarkObjects: 1.241000 ms  DeleteObjects: 0.001800 ms)
+
+  at System.IO.BinaryReader.ReadByte () [0x00000] in <filename unknown>:0 
+  at System.IO.BinaryReader.ReadSByte () [0x00000] in <filename unknown>:0 
+  at Session_ME+MessageCollector.readMessage () [0x00000] in <filename unknown>:0 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+disconnect
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+connecting...!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+host: dragon6.teamobi.com
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+port: 14445
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+APP QUIT
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+  at System.Net.Sockets.NetworkStream.Read (System.Byte[] buffer, Int32 offset, Int32 size) [0x00000] in <filename unknown>:0 
+  at System.IO.Stream.ReadByte () [0x00000] in <filename unknown>:0 
+  at System.IO.BinaryReader.ReadByte () [0x00000] in <filename unknown>:0 
+  at System.IO.BinaryReader.ReadSByte () [0x00000] in <filename unknown>:0 
+  at Session_ME+MessageCollector.readMessage () [0x00000] in <filename unknown>:0 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 113 unused Assets to reduce memory usage. Loaded Objects now: 768.
+Total: 1.346700 ms (FindLiveObjects: 0.042000 ms CreateObjectMapping: 0.025200 ms MarkObjects: 1.184900 ms  DeleteObjects: 0.094300 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 965.
+Total: 1.697300 ms (FindLiveObjects: 0.046200 ms CreateObjectMapping: 0.035500 ms MarkObjects: 1.612400 ms  DeleteObjects: 0.002400 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 768.
+Total: 2.275700 ms (FindLiveObjects: 0.051000 ms CreateObjectMapping: 0.041100 ms MarkObjects: 2.179300 ms  DeleteObjects: 0.003400 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 784.
+Total: 1.343100 ms (FindLiveObjects: 0.029700 ms CreateObjectMapping: 0.023800 ms MarkObjects: 1.272800 ms  DeleteObjects: 0.016300 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 831.
+Total: 1.217700 ms (FindLiveObjects: 0.024800 ms CreateObjectMapping: 0.020800 ms MarkObjects: 1.157800 ms  DeleteObjects: 0.013900 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 831.
+Total: 1.235400 ms (FindLiveObjects: 0.018600 ms CreateObjectMapping: 0.021800 ms MarkObjects: 1.193000 ms  DeleteObjects: 0.001600 ms)
+
+Crash!!!
+SymInit: Symbol-SearchPath: '.;D:\game\nro\mod_game\mod_game_nro\build;D:\game\nro\mod_game\mod_game_nro\build;C:\Windows;C:\Windows\system32;SRV*C:\websymbols*http://msdl.microsoft.com/download/symbols;', symOptions: 530, UserName: 'hien'
+OS-Version: 10.0.19044 () 0x300-0x1
+D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222.exe:Dragonboy_vn_v222.exe (00860000), size: 19038208 (result: 0), SymType: '-exported-', PDB: 'D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222.exe', fileVersion: 5.6.7.3267
+C:\Windows\SYSTEM32\ntdll.dll:ntdll.dll (77580000), size: 1720320 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\ntdll.dll', fileVersion: 10.0.19041.2193
+C:\Windows\System32\KERNEL32.DLL:KERNEL32.DLL (75D50000), size: 983040 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\KERNEL32.DLL', fileVersion: 10.0.19041.2251
+C:\Windows\System32\KERNELBASE.dll:KERNELBASE.dll (76820000), size: 2211840 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\KERNELBASE.dll', fileVersion: 10.0.19041.2251
+C:\Windows\System32\USER32.dll:USER32.dll (75680000), size: 1687552 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\USER32.dll', fileVersion: 10.0.19041.2251
+C:\Windows\System32\win32u.dll:win32u.dll (75440000), size: 98304 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\win32u.dll', fileVersion: 10.0.19041.2251
+C:\Windows\System32\GDI32.dll:GDI32.dll (75820000), size: 143360 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\GDI32.dll', fileVersion: 10.0.19041.2130
+C:\Windows\SYSTEM32\HID.DLL:HID.DLL (71850000), size: 40960 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\HID.DLL', fileVersion: 10.0.19041.546
+C:\Windows\System32\msvcrt.dll:msvcrt.dll (75C90000), size: 782336 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\msvcrt.dll', fileVersion: 7.0.19041.546
+C:\Windows\System32\gdi32full.dll:gdi32full.dll (761B0000), size: 917504 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\gdi32full.dll', fileVersion: 10.0.19041.2194
+C:\Windows\System32\msvcp_win.dll:msvcp_win.dll (766C0000), size: 503808 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\msvcp_win.dll', fileVersion: 10.0.19041.789
+C:\Windows\System32\ucrtbase.dll:ucrtbase.dll (763A0000), size: 1179648 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\ucrtbase.dll', fileVersion: 10.0.19041.789
+C:\Windows\System32\ole32.dll:ole32.dll (75590000), size: 929792 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\ole32.dll', fileVersion: 10.0.19041.1202
+C:\Windows\System32\RPCRT4.dll:RPCRT4.dll (76600000), size: 778240 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\RPCRT4.dll', fileVersion: 10.0.19041.1806
+C:\Windows\SYSTEM32\VERSION.dll:VERSION.dll (75120000), size: 32768 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\VERSION.dll', fileVersion: 10.0.19041.546
+C:\Windows\System32\combase.dll:combase.dll (75F30000), size: 2621440 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\combase.dll', fileVersion: 10.0.19041.2130
+C:\Windows\System32\SHLWAPI.dll:SHLWAPI.dll (75EE0000), size: 282624 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\SHLWAPI.dll', fileVersion: 10.0.19041.2075
+C:\Windows\System32\ADVAPI32.dll:ADVAPI32.dll (76A70000), size: 503808 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\ADVAPI32.dll', fileVersion: 10.0.19041.2130
+C:\Windows\System32\sechost.dll:sechost.dll (75510000), size: 483328 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\sechost.dll', fileVersion: 10.0.19041.1865
+C:\Windows\System32\SHELL32.dll:SHELL32.dll (76E80000), size: 5984256 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\SHELL32.dll', fileVersion: 10.0.19041.2075
+C:\Windows\System32\WS2_32.dll:WS2_32.dll (76330000), size: 405504 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\WS2_32.dll', fileVersion: 10.0.19041.546
+C:\Windows\System32\OLEAUT32.dll:OLEAUT32.dll (76C80000), size: 614400 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\OLEAUT32.dll', fileVersion: 10.0.19041.985
+C:\Windows\System32\IMM32.dll:IMM32.dll (77540000), size: 155648 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\IMM32.dll', fileVersion: 10.0.19041.2193
+C:\Windows\SYSTEM32\OPENGL32.dll:OPENGL32.dll (63320000), size: 1060864 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\OPENGL32.dll', fileVersion: 10.0.19041.2193
+C:\Windows\SYSTEM32\WINMM.dll:WINMM.dll (73670000), size: 163840 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\WINMM.dll', fileVersion: 10.0.19041.546
+C:\Windows\SYSTEM32\DNSAPI.dll:DNSAPI.dll (735C0000), size: 589824 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\DNSAPI.dll', fileVersion: 10.0.19041.1865
+C:\Windows\SYSTEM32\WINHTTP.dll:WINHTTP.dll (731E0000), size: 831488 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\WINHTTP.dll', fileVersion: 10.0.19041.2193
+C:\Windows\SYSTEM32\IPHLPAPI.DLL:IPHLPAPI.DLL (74F00000), size: 204800 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\IPHLPAPI.DLL', fileVersion: 10.0.19041.546
+C:\Windows\SYSTEM32\GLU32.dll:GLU32.dll (63500000), size: 258048 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\GLU32.dll', fileVersion: 10.0.19041.2193
+C:\Windows\System32\NSI.dll:NSI.dll (76290000), size: 28672 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\NSI.dll', fileVersion: 10.0.19041.610
+C:\Windows\SYSTEM32\kernel.appcore.dll:kernel.appcore.dll (747E0000), size: 61440 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\kernel.appcore.dll', fileVersion: 10.0.19041.546
+C:\Windows\System32\bcryptPrimitives.dll:bcryptPrimitives.dll (76E20000), size: 389120 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\bcryptPrimitives.dll', fileVersion: 10.0.19041.1415
+C:\Windows\system32\uxtheme.dll:uxtheme.dll (71FA0000), size: 475136 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\system32\uxtheme.dll', fileVersion: 10.0.19041.2193
+D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Mono\mono.dll:mono.dll (10000000), size: 2383872 (result: 0), SymType: '-exported-', PDB: 'D:\game\nro\mod_game\mod_game_nro\build\Dragonboy_vn_v222_Data\Mono\mono.dll', fileVersion: 1.0.0.1
+C:\Windows\System32\PSAPI.DLL:PSAPI.DLL (75E40000), size: 24576 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\PSAPI.DLL', fileVersion: 10.0.19041.546
+C:\Windows\SYSTEM32\MSWSOCK.dll:MSWSOCK.dll (74030000), size: 335872 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\MSWSOCK.dll', fileVersion: 10.0.19041.546
+C:\Windows\System32\shcore.dll:shcore.dll (76570000), size: 552960 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\shcore.dll', fileVersion: 10.0.19041.1645
+C:\Windows\System32\MSCTF.dll:MSCTF.dll (76740000), size: 868352 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\MSCTF.dll', fileVersion: 10.0.19041.2193
+C:\Windows\SYSTEM32\d3d11.dll:d3d11.dll (65F50000), size: 1966080 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\d3d11.dll', fileVersion: 10.0.19041.2075
+C:\Windows\SYSTEM32\dxgi.dll:dxgi.dll (66210000), size: 794624 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\dxgi.dll', fileVersion: 10.0.19041.2075
+C:\Windows\System32\DriverStore\FileRepository\nvam.inf_amd64_37f28daaff36deca\nvldumd.dll:nvldumd.dll (6B2D0000), size: 573440 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\DriverStore\FileRepository\nvam.inf_amd64_37f28daaff36deca\nvldumd.dll', fileVersion: 30.0.15.1278
+C:\Windows\SYSTEM32\msasn1.dll:msasn1.dll (73EA0000), size: 57344 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\msasn1.dll', fileVersion: 10.0.19041.2251
+C:\Windows\SYSTEM32\cryptnet.dll:cryptnet.dll (72070000), size: 155648 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\cryptnet.dll', fileVersion: 10.0.19041.906
+C:\Windows\System32\CRYPT32.dll:CRYPT32.dll (76D20000), size: 1024000 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\CRYPT32.dll', fileVersion: 10.0.19041.1889
+C:\Windows\SYSTEM32\drvstore.dll:drvstore.dll (68CF0000), size: 1048576 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\drvstore.dll', fileVersion: 10.0.19041.1949
+C:\Windows\SYSTEM32\devobj.dll:devobj.dll (72740000), size: 147456 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\devobj.dll', fileVersion: 10.0.19041.1620
+C:\Windows\System32\cfgmgr32.dll:cfgmgr32.dll (77500000), size: 241664 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\cfgmgr32.dll', fileVersion: 10.0.19041.1620
+C:\Windows\SYSTEM32\wldp.dll:wldp.dll (74810000), size: 159744 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\wldp.dll', fileVersion: 10.0.19041.2075
+C:\Windows\SYSTEM32\cryptbase.dll:cryptbase.dll (73E60000), size: 40960 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\cryptbase.dll', fileVersion: 10.0.19041.546
+C:\Windows\System32\WINTRUST.DLL:WINTRUST.DLL (76520000), size: 319488 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\WINTRUST.DLL', fileVersion: 10.0.19041.2193
+C:\Windows\System32\imagehlp.dll:imagehlp.dll (76A50000), size: 102400 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\imagehlp.dll', fileVersion: 10.0.19041.1415
+C:\Windows\SYSTEM32\CRYPTSP.dll:CRYPTSP.dll (72610000), size: 77824 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\CRYPTSP.dll', fileVersion: 10.0.19041.546
+C:\Windows\system32\rsaenh.dll:rsaenh.dll (725E0000), size: 192512 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\system32\rsaenh.dll', fileVersion: 10.0.19041.1052
+C:\Windows\System32\bcrypt.dll:bcrypt.dll (76C60000), size: 102400 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\bcrypt.dll', fileVersion: 10.0.19041.1023
+C:\Windows\System32\DriverStore\FileRepository\nvam.inf_amd64_37f28daaff36deca\nvwgf2um.dll:nvwgf2um.dll (78DA0000), size: 35540992 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\DriverStore\FileRepository\nvam.inf_amd64_37f28daaff36deca\nvwgf2um.dll', fileVersion: 30.0.15.1278
+C:\Windows\SYSTEM32\windows.storage.dll:windows.storage.dll (74840000), size: 6332416 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\windows.storage.dll', fileVersion: 10.0.19041.2251
+C:\Windows\SYSTEM32\dxcore.dll:dxcore.dll (63B40000), size: 180224 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\dxcore.dll', fileVersion: 10.0.19041.546
+C:\Windows\System32\clbcatq.dll:clbcatq.dll (75E50000), size: 536576 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\clbcatq.dll', fileVersion: 2001.12.10941.16384
+C:\Windows\system32\wbem\wbemprox.dll:wbemprox.dll (71F60000), size: 53248 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\system32\wbem\wbemprox.dll', fileVersion: 10.0.19041.1320
+C:\Windows\SYSTEM32\wbemcomn.dll:wbemcomn.dll (6E090000), size: 458752 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\wbemcomn.dll', fileVersion: 10.0.19041.1566
+C:\Windows\system32\wbem\wbemsvc.dll:wbemsvc.dll (71F50000), size: 65536 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\system32\wbem\wbemsvc.dll', fileVersion: 10.0.19041.1320
+C:\Windows\system32\wbem\fastprox.dll:fastprox.dll (67800000), size: 823296 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\system32\wbem\fastprox.dll', fileVersion: 10.0.19041.546
+C:\Windows\SYSTEM32\amsi.dll:amsi.dll (71860000), size: 98304 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\amsi.dll', fileVersion: 10.0.19041.2075
+C:\Windows\SYSTEM32\USERENV.dll:USERENV.dll (73DE0000), size: 151552 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\USERENV.dll', fileVersion: 10.0.19041.572
+C:\Windows\SYSTEM32\profapi.dll:profapi.dll (747F0000), size: 98304 (result: 0), SymType: '-nosymbols-', PDB: 'C:\Windows\SYSTEM32\profapi.dll', fileVersion: 10.0.19041.844
+C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2210.6-0\X86\MpOav.dll:MpOav.dll (6E020000), size: 442368 (result: 0), SymType: '-exported-', PDB: 'C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2210.6-0\X86\MpOav.dll', fileVersion: 4.18.2210.6
+C:\Windows\System32\MMDevApi.dll:MMDevApi.dll (65640000), size: 438272 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\MMDevApi.dll', fileVersion: 10.0.19041.2075
+C:\Windows\SYSTEM32\winmmbase.dll:winmmbase.dll (62F50000), size: 118784 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\winmmbase.dll', fileVersion: 10.0.19041.1
+C:\Windows\SYSTEM32\wdmaud.drv:wdmaud.drv (71630000), size: 237568 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\wdmaud.drv', fileVersion: 10.0.19041.1
+C:\Windows\SYSTEM32\ksuser.dll:ksuser.dll (720D0000), size: 28672 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\ksuser.dll', fileVersion: 10.0.19041.1
+C:\Windows\SYSTEM32\AVRT.dll:AVRT.dll (736F0000), size: 32768 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\AVRT.dll', fileVersion: 10.0.19041.546
+C:\Windows\SYSTEM32\AUDIOSES.DLL:AUDIOSES.DLL (5C850000), size: 1269760 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\AUDIOSES.DLL', fileVersion: 10.0.19041.1741
+C:\Windows\SYSTEM32\powrprof.dll:powrprof.dll (736A0000), size: 278528 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\powrprof.dll', fileVersion: 10.0.19041.546
+C:\Windows\SYSTEM32\UMPDC.dll:UMPDC.dll (73650000), size: 53248 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\UMPDC.dll'
+C:\Windows\SYSTEM32\msacm32.drv:msacm32.drv (71B90000), size: 40960 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\msacm32.drv', fileVersion: 10.0.19041.488
+C:\Windows\SYSTEM32\MSACM32.dll:MSACM32.dll (714C0000), size: 102400 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\MSACM32.dll', fileVersion: 10.0.19041.1
+C:\Windows\SYSTEM32\midimap.dll:midimap.dll (71B80000), size: 32768 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\midimap.dll', fileVersion: 10.0.19041.488
+C:\Windows\SYSTEM32\resourcepolicyclient.dll:resourcepolicyclient.dll (714B0000), size: 61440 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\resourcepolicyclient.dll', fileVersion: 10.0.19041.546
+C:\Windows\SYSTEM32\xinput9_1_0.dll:xinput9_1_0.dll (714A0000), size: 28672 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\xinput9_1_0.dll', fileVersion: 10.0.19041.1
+C:\Windows\SYSTEM32\textinputframework.dll:textinputframework.dll (66900000), size: 757760 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\textinputframework.dll', fileVersion: 10.0.19041.2075
+C:\Windows\SYSTEM32\CoreUIComponents.dll:CoreUIComponents.dll (66680000), size: 2613248 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\CoreUIComponents.dll', fileVersion: 10.0.19041.546
+C:\Windows\SYSTEM32\CoreMessaging.dll:CoreMessaging.dll (665E0000), size: 634880 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\CoreMessaging.dll', fileVersion: 10.0.19041.2193
+C:\Windows\SYSTEM32\ntmarta.dll:ntmarta.dll (747B0000), size: 167936 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\ntmarta.dll', fileVersion: 10.0.19041.546
+C:\Windows\SYSTEM32\wintypes.dll:wintypes.dll (67490000), size: 897024 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\wintypes.dll', fileVersion: 10.0.19041.2130
+C:\Windows\SYSTEM32\dwmapi.dll:dwmapi.dll (71600000), size: 155648 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\dwmapi.dll', fileVersion: 10.0.19041.746
+C:\Windows\SYSTEM32\dhcpcsvc6.DLL:dhcpcsvc6.DLL (72720000), size: 81920 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\dhcpcsvc6.DLL', fileVersion: 10.0.19041.2130
+C:\Windows\SYSTEM32\dhcpcsvc.DLL:dhcpcsvc.DLL (72630000), size: 90112 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\dhcpcsvc.DLL', fileVersion: 10.0.19041.2130
+C:\Windows\System32\rasadhlp.dll:rasadhlp.dll (63040000), size: 32768 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\rasadhlp.dll', fileVersion: 10.0.19041.546
+C:\Windows\System32\fwpuclnt.dll:fwpuclnt.dll (62ED0000), size: 364544 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\System32\fwpuclnt.dll', fileVersion: 10.0.19041.1682
+C:\Windows\SYSTEM32\dbghelp.dll:dbghelp.dll (70A60000), size: 1605632 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\dbghelp.dll', fileVersion: 10.0.19041.1052
+C:\Windows\SYSTEM32\SspiCli.dll:SspiCli.dll (73E70000), size: 135168 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\SspiCli.dll', fileVersion: 10.0.19041.2130
+
+========== OUTPUTING STACK TRACE ==================
+
+  ERROR: SymGetSymFromAddr64, GetLastError: 'Attempt to access invalid address.' (Address: 00B09C6B)
+0x00B09C6B (Dragonboy_vn_v222) 
+  ERROR: SymGetSymFromAddr64, GetLastError: 'Attempt to access invalid address.' (Address: 00B0B40A)
+0x00B0B40A (Dragonboy_vn_v222) 
+  ERROR: SymGetSymFromAddr64, GetLastError: 'Attempt to access invalid address.' (Address: 00B0ACC6)
+0x00B0ACC6 (Dragonboy_vn_v222) 
+  ERROR: SymGetSymFromAddr64, GetLastError: 'Attempt to access invalid address.' (Address: 00B4CB41)
+0x00B4CB41 (Dragonboy_vn_v222) 
+  ERROR: SymGetSymFromAddr64, GetLastError: 'Attempt to access invalid address.' (Address: 00B527BE)
+0x00B527BE (Dragonboy_vn_v222) 
+  ERROR: SymGetSymFromAddr64, GetLastError: 'Attempt to access invalid address.' (Address: 00E45DC6)
+0x00E45DC6 (Dragonboy_vn_v222) 
+0x75D6FEF9 (KERNEL32) BaseThreadInitThunk
+0x775E7BBE (ntdll) RtlGetAppContainerNamedObjectPath
+0x775E7B8E (ntdll) RtlGetAppContainerNamedObjectPath
+
+========== END OF STACKTRACE ===========
+
+**** Crash! ****
