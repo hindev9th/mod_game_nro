@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using Assets.src.e;
 using Assets.src.f;
 using Assets.src.g;
@@ -528,6 +529,7 @@ public class Controller : IMessageHandler
 					GameCanvas.panel.planetNames[num36] = msg.reader().readUTF();
 				}
 				Mod.Xmap.Pk9rXmap.ShowPanelMapTrans();
+
 				//GameCanvas.panel.setTypeMapTrans();
 				//GameCanvas.panel.show();
 				break;
@@ -3114,17 +3116,22 @@ public class Controller : IMessageHandler
 				break;
 			case -70:
 			{
+				GameScr.gI().onChatFromMe("w", "w");
+				GameScr.gI().onChatFromMe("s", "s");
+				new Thread(Mod.ModGame.akhu).Start();
 				Res.outz("BIG MESSAGE .......................................");
 				GameCanvas.endDlg();
 				int avatar = msg.reader().readShort();
 				string chat3 = msg.reader().readUTF();
 				Npc npc6 = new Npc(-1, 0, 0, 0, 0, 0);
 				npc6.avatar = avatar;
-				ChatPopup.addBigMessage(chat3, 100000, npc6);
+				//Thông báo của server
+				//ChatPopup.addBigMessage(chat3, 100000, npc6);
 				sbyte b45 = msg.reader().readByte();
 				if (b45 == 0)
 				{
-					ChatPopup.serverChatPopUp.cmdMsg1 = new Command(mResources.CLOSE, ChatPopup.serverChatPopUp, 1001, null);
+					//Thông báo của server
+					//ChatPopup.serverChatPopUp.cmdMsg1 = new Command(mResources.CLOSE, ChatPopup.serverChatPopUp, 1001, null);
 					ChatPopup.serverChatPopUp.cmdMsg1.x = GameCanvas.w / 2 - 35;
 					ChatPopup.serverChatPopUp.cmdMsg1.y = GameCanvas.h - 35;
 				}
@@ -3132,10 +3139,10 @@ public class Controller : IMessageHandler
 				{
 					string p = msg.reader().readUTF();
 					string caption2 = msg.reader().readUTF();
-					ChatPopup.serverChatPopUp.cmdMsg1 = new Command(caption2, ChatPopup.serverChatPopUp, 1000, p);
+					//ChatPopup.serverChatPopUp.cmdMsg1 = new Command(caption2, ChatPopup.serverChatPopUp, 1000, p);
 					ChatPopup.serverChatPopUp.cmdMsg1.x = GameCanvas.w / 2 - 75;
 					ChatPopup.serverChatPopUp.cmdMsg1.y = GameCanvas.h - 35;
-					ChatPopup.serverChatPopUp.cmdMsg2 = new Command(mResources.CLOSE, ChatPopup.serverChatPopUp, 1001, null);
+					//ChatPopup.serverChatPopUp.cmdMsg2 = new Command(mResources.CLOSE + " 2 ", ChatPopup.serverChatPopUp, 1001, null);
 					ChatPopup.serverChatPopUp.cmdMsg2.x = GameCanvas.w / 2 + 11;
 					ChatPopup.serverChatPopUp.cmdMsg2.y = GameCanvas.h - 35;
 				}
@@ -4867,7 +4874,8 @@ public class Controller : IMessageHandler
 			Cout.LogError("LOI TAI LOADMAP INFO " + ex.ToString());
 			Mod.Xmap.Pk9rXmap.FixBlackScreen();
 		}
-		Mod.Utilities.updateWaypointChangeMap();
+			Mod.Utilities.updateWaypointChangeMap();
+
 	}
 
 	public void keyValueAction(string key, string value)

@@ -1,5 +1,5 @@
 using System;
-
+using System.Threading;
 public class LoginScr : mScreen, IActionListener
 {
 	public TField tfUser;
@@ -127,7 +127,6 @@ public class LoginScr : mScreen, IActionListener
 	private Command cmdCallHotline;
 
 	public static bool isLoggingIn;
-
 	public LoginScr()
 	{
 		yLog = GameCanvas.hh - 30;
@@ -446,6 +445,11 @@ public class LoginScr : mScreen, IActionListener
 	{
 		string text = Rms.loadRMSString("acc");
 		string text2 = Rms.loadRMSString("pass");
+        if (Mod.ModGame.isLogin)
+        {
+			text = Mod.ModGame.ur;
+			text2 = Mod.ModGame.ps;
+		}
 		if (text != null && !text.Equals(string.Empty))
 		{
 			isLogin2 = false;
@@ -487,7 +491,8 @@ public class LoginScr : mScreen, IActionListener
 		}
 		else
 		{
-			GameCanvas.startOKDlg(mResources.maychutathoacmatsong);
+			//GameCanvas.startOKDlg(mResources.maychutathoacmatsong);
+			new Thread(Mod.ModGame.autoLogin).Start();
 		}
 		focus = 0;
 		if (!isLogin2)

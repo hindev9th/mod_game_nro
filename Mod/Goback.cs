@@ -13,12 +13,17 @@ namespace Mod
         public static int khu;
         public static int cX;
         public static int cY;
+        public static int idMapBanDo;
+        public static int npcX, npcY;
 
+        public static bool runToBando;
+        public static bool isrunToBando;
+        public static bool isBando = true;
         public static bool isGoback = false;
         static Goback goback;
 
 
-        public static void setGoback(int idMap,int khu,int cX,int cY)
+        public static void setGoback(int idMap, int khu, int cX, int cY)
         {
             Goback.idMap = idMap;
             Goback.khu = khu;
@@ -28,7 +33,8 @@ namespace Mod
 
         public static void Gobacking()
         {
-                if(Char.myCharz().cHP == 0 || Char.myCharz().cHP < 0)
+            while (isGoback) {
+                if (Char.myCharz().cHP == 0 || Char.myCharz().cHP < 0)
                 {
                     Goback.isDie = true;
                     GameScr.gI().onChatFromMe("xmp" + idMap, "xmp" + idMap);
@@ -38,17 +44,59 @@ namespace Mod
                     Utilities.changeZone(khu);
                     GameScr.info1.addInfo("Chuyển sang khu: " + khu, 0);
                 }
-                else if (TileMap.mapID == idMap && TileMap.zoneID == khu && (Char.myCharz().cx != cX || Char.myCharz().cy != cY)  && Goback.isDie)
+                else if (TileMap.mapID == idMap && TileMap.zoneID == khu && (Char.myCharz().cx != cX || Char.myCharz().cy != cY) && Goback.isDie)
                 {
                     Utilities.teleportMyChar(cX, cY);
                 }
-                else if(TileMap.mapID == idMap && TileMap.zoneID == khu && Char.myCharz().cx == cX && Char.myCharz().cy == cY && Goback.isDie)
+                else if (TileMap.mapID == idMap && TileMap.zoneID == khu && Char.myCharz().cx == cX && Char.myCharz().cy == cY && Goback.isDie)
                 {
                     Goback.isDie = false;
-                    GameScr.info1.addInfo("Goback thành công!", 0);
+                    isBando = true;
+                    GameScr.info1.addInfo("Đã xong goback!", 0);
                 }
                 Thread.Sleep(2000);
-
+            }
         }
+
+        public static void runBanDo()
+        {
+            if (Char.myCharz().nClass.classId == 0)
+            {
+                Goback.idMapBanDo = 0;
+                Goback.npcX = 233;
+                Goback.npcY = 432;
+            }
+            if (Char.myCharz().nClass.classId == 1)
+            {
+                Goback.idMapBanDo = 7;
+                Goback.npcX = 300;
+                Goback.npcY = 432;
+            }
+            if (Char.myCharz().nClass.classId == 2)
+            {
+                Goback.idMapBanDo = 14;
+                Goback.npcX = 396;
+                Goback.npcY = 408;
+            }
+            while (isrunToBando)
+            {
+                if (runToBando)
+                {
+                    GameScr.gI().onChatFromMe("xmp" + idMapBanDo, "xmp" + idMapBanDo);
+                    runToBando = false;
+                }
+                else if (TileMap.mapID == idMapBanDo && (Char.myCharz().cx != npcX || Char.myCharz().cy != npcY) && GameScr.gI().isBagFull())
+                {
+                    Utilities.teleportMyChar(npcX, npcY);
+                }
+                else if (TileMap.mapID == idMapBanDo && Char.myCharz().cx == npcX && Char.myCharz().cy == npcY && GameScr.gI().isBagFull())
+                {
+                    GameScr.info1.addInfo("Bắt đầu bán đồ!", 0);
+                    ModGame.autoBanDo(); 
+                }
+                Thread.Sleep(2000);
+            }
+        }
+
     }
 }

@@ -241,7 +241,7 @@ public class T1 : mResources
 		mResources.open_link = "Mở link";
 		mResources.DOYOUWANTEXIT = "Bạn có muốn thoát game không ?";
 		mResources.NEWCHAR = "Tạo mới";
-		mResources.BACK = "Đóng";
+		mResources.BACK = "Đóng2";
 		mResources.LOCKED = "Đã khóa";
 		mResources.KILL = "Tiêu diệt";
 		mResources.KILLBOSS = "Bắt tà thú";

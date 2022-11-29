@@ -1394,6 +1394,7 @@ public class Mob : IMapObject
 				num = 9;
 			}
             g.drawRegion(imgHP, 0, 6 * (9 - num), 9, 6, 0, x, y - h - 10, 3);
+			mFont.tahoma_7b_red.drawString(g, NinjaUtil.getMoneys(hp), x, y - h - 20 - mFont.tahoma_7b_red.getHeight(), mFont.CENTER, mFont.tahoma_7b_white);
         }
 	}
 

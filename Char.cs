@@ -1,6 +1,7 @@
 using System;
 using Assets.src.e;
 using Assets.src.g;
+using Mod;
 
 public class Char : IMapObject
 {
@@ -5231,6 +5232,8 @@ public class Char : IMapObject
 			num = 9;
 		}
 		g.drawRegion(Mob.imgHP, 0, 6 * (9 - num), 9, 6, 0, x, y, 3);
+		mFont.tahoma_7b_red.drawString(g, NinjaUtil.getMoneys(cHP), x, y - 20 - mFont.tahoma_7b_red.getHeight(), mFont.CENTER, mFont.tahoma_7b_white);
+
 	}
 
 	public int getClassColor()
