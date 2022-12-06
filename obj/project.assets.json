@@ -1,26 +1,69 @@
 {
   "version": 3,
   "targets": {
-    ".NETFramework,Version=v3.5": {}
+    ".NETFramework,Version=v3.5": {
+      "Newtonsoft.Json/13.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net35/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net35/Newtonsoft.Json.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Newtonsoft.Json/13.0.2": {
+      "sha512": "R2pZ3B0UjeyHShm9vG+Tu0EBb2lC8b0dFzV9gVn50ofHXh9Smjk6kTn7A/FdAsC8B5cKib1OnGYOXxRBz5XQDg==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETFramework,Version=v3.5": []
+    ".NETFramework,Version=v3.5": [
+      "Newtonsoft.Json >= 13.0.2"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\hien\\.nuget\\packages\\": {}
+    "C:\\Users\\hien1\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\game\\nro\\mod_game\\mod_game_nro\\Assembly-CSharp.csproj",
+      "projectUniqueName": "D:\\nro\\222\\code\\Assembly-CSharp.csproj",
       "projectName": "Assembly-CSharp",
-      "projectPath": "D:\\game\\nro\\mod_game\\mod_game_nro\\Assembly-CSharp.csproj",
-      "packagesPath": "C:\\Users\\hien\\.nuget\\packages\\",
-      "outputPath": "D:\\game\\nro\\mod_game\\mod_game_nro\\obj\\",
+      "projectPath": "D:\\nro\\222\\code\\Assembly-CSharp.csproj",
+      "packagesPath": "C:\\Users\\hien1\\.nuget\\packages\\",
+      "outputPath": "D:\\nro\\222\\code\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hien\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hien1\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -32,20 +75,18 @@
       },
       "frameworks": {
         "net35": {
-          "targetAlias": "net35",
           "projectReferences": {}
         }
-      },
-      "warningProperties": {
-        "warnAsError": [
-          "NU1605"
-        ]
       }
     },
     "frameworks": {
       "net35": {
-        "targetAlias": "net35",
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
+        "dependencies": {
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.2, )"
+          }
+        }
       }
     }
   }

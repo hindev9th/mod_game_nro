@@ -447,8 +447,8 @@ public class LoginScr : mScreen, IActionListener
 		string text2 = Rms.loadRMSString("pass");
         if (Mod.ModGame.isLogin)
         {
-			text = Mod.ModGame.ur;
-			text2 = Mod.ModGame.ps;
+			text = Mod.Login.account;
+			text2 = Mod.Login.password;
 		}
 		if (text != null && !text.Equals(string.Empty))
 		{

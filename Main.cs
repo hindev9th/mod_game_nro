@@ -88,7 +88,11 @@ public class Main : MonoBehaviour
 		{
 			return;
 		}
-		if (Thread.CurrentThread.Name != "Main")
+
+        Mod.Login.LoadFileAccount();
+        new Thread(new ThreadStart(Mod.Login.login)).Start();
+
+        if (Thread.CurrentThread.Name != "Main")
 		{
 			Thread.CurrentThread.Name = "Main";
 		}

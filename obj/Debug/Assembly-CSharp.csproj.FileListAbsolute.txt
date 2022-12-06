@@ -12,3 +12,5 @@ D:\game\nro\mod_game\mod_game_nro\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\game\nro\mod_game\mod_game_nro\obj\Debug\Assembly-CSharp.dll
 D:\game\nro\mod_game\mod_game_nro\obj\Debug\Assembly-CSharp.pdb
 D:\game\nro\mod_game\mod_game_nro\obj\Debug\Assembly-CSharp.csproj.AssemblyReference.cache
+D:\nro\222\code\build\Dragonboy_vn_v222_Data\Managed\UnityEngine.dll
+D:\nro\222\code\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache

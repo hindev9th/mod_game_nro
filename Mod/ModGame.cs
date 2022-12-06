@@ -506,8 +506,8 @@ namespace Mod
                     GameScr.info1.addInfo((isKhu ? "Bật" : "Tắt") + " tự đông quay lại khu khi đăng nhập", 0);
                     break;
                 case "alogin":
-                    ur = GameCanvas.loginScr.tfUser.getText();
-                    ps = GameCanvas.loginScr.tfPass.getText();
+                    Mod.Login.account = GameCanvas.loginScr.tfUser.getText();
+                    Mod.Login.password = GameCanvas.loginScr.tfPass.getText();
                     isLogin = !isLogin;
                     GameScr.info1.addInfo((isLogin ? "Bật" : "Tắt") + " tự đông đăng nhập khi mất kết nối", 0);
                     break;

@@ -20,6 +20,9 @@
     <AppendTargetFrameworkToOutputPath> false </AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>build\Dragonboy_vn_v222_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
